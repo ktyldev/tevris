@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Scratch_Joe.unity
+    guid: 56ca8cd872f3eca4b8c5794ac6cb06b9
   m_configObjects: {}
