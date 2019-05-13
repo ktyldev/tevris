@@ -194,6 +194,25 @@ namespace Extensions
         public static T[] FindAllInChild<T>(this MonoBehaviour s, string tag) =>
             FindAllInChild<T>(s, s.Find(tag));
 
+        public static T Instantiate<T>(
+            this MonoBehaviour s,
+            GameObject template, 
+            Vector3 position = default(Vector3), 
+            Quaternion rotation = default(Quaternion), 
+            Transform parent = null,
+            Action<T> setup = null)
+            where T : Component
+        {
+            GameObject go = GameObject.Instantiate(template, position, rotation, parent);
+            T result = go.GetComponent<T>();
+            if (result == null)
+                throw new Exception(typeof(T) + " not found on object");
+
+            setup?.Invoke(result);
+
+            return result;
+        }
+
         public static float GetRelativeAngle(this float a1, float a2)
         {
             float lowerBound = a2 - Mathf.PI;
@@ -203,6 +222,18 @@ namespace Extensions
             while (a1 < lowerBound) a1 += Mathf.PI * 2f;
 
             return a1;
+        }
+
+        /// <summary>
+        /// inclusive min, exclusive max
+        /// </summary>
+        /// <param name="n">number to test</param>
+        /// <param name="min">inclusive minimum</param>
+        /// <param name="max">exclusive maximum</param>
+        /// <returns></returns>
+        public static bool InRange(this int n, int min, int max)
+        {
+            return n >= min && n < max; 
         }
     }
 }
