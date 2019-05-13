@@ -110,7 +110,6 @@ public class TetrisGame : MonoBehaviour
             grid.transform);
 
         tetrominos_[x, y] = t;
-        t.CanFall = true;
         t.Colour = Color.red;
     }
 
