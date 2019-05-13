@@ -30,8 +30,12 @@ public class VRPickerNode {
 
         baseObject_ = new GameObject(InputTracking.GetNodeName((ulong)data.Node));
 
-        visuals_ = GameObject.Instantiate(data.VisualPrefab).transform;
-        visuals_.parent = baseObject_.transform;
+        if (data.VisualPrefab != null)
+        {
+            var inst = GameObject.Instantiate(data.VisualPrefab);
+            visuals_ = inst.transform;
+            visuals_.parent = baseObject_.transform;
+        }
     }
 
     void SetBasePosition(Vector3 basePosition)
@@ -39,7 +43,7 @@ public class VRPickerNode {
 
     public void Update()
     {
-        Debug.Log("updating node");
+        if (visuals_ == null) return;
         visuals_.SetPositionAndRotation(
             basePosition_ + InputTracking.GetLocalPosition(data_.Node),
             InputTracking.GetLocalRotation(data_.Node)
