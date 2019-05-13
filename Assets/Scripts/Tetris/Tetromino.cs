@@ -19,6 +19,11 @@ public class Tetromino : MonoBehaviour
             throw new System.Exception("need a renderer fam");
     }
 
+    public void Move()
+    {
+        
+    }
+
     // Use this for initialization
     void Start()
     {

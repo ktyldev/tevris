@@ -2,37 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Extensions;
+using System.Linq;
 
-public enum Direction
-{
-    Up,
-    Right,
-    Down,
-    Left
-}
+
 // non-static
 public class TetrisGame : MonoBehaviour
 {
-    private static readonly Vector2Int[] Directions = new[] 
-    {
-        Vector2Int.up,
-        Vector2Int.right,
-        Vector2Int.down,
-        Vector2Int.left
-    };
-    public static Vector2Int GetDirection(Direction dir) => Directions[(int)dir];
-
     public static TetrisGame Instance { get; private set; }
 
     public int rows, columns;
+    public Piece[] piecePatterns;
     public GameObject tetromino;
     public GameObject grid;
 
     private Tetromino[,] tetrominos_;
+    private Tetromino[,] fallenTetrominos_;
+    private Piece? activePiece_;
 
     private void Awake()
     {
         tetrominos_ = new Tetromino[columns, rows];
+        fallenTetrominos_ = new Tetromino[columns, rows];
 
         if (Instance != null)
             throw new System.Exception();
@@ -43,7 +33,6 @@ public class TetrisGame : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        SpawnTetronimo();
     }
 
     private int frames_ = 0;
@@ -53,7 +42,7 @@ public class TetrisGame : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P) && !dirty_)
         {
-            SpawnTetronimo();
+            SpawnPiece();
             dirty_ = true;
         }
 
@@ -67,35 +56,85 @@ public class TetrisGame : MonoBehaviour
 
     private void Tick()
     {
-        for (int row = 0; row < rows; row++)
+        Fall();
+    }
+    
+    private void Fall()
+    {
+        if (!activePiece_.HasValue)
+            return;
+
+        var result = MovePiece(Direction.Down);
+        if (!result)
         {
-            for (int col = 0; col < columns; col++)
+            for (int i = 0; i < 4; i++)
             {
-                var pos = new Vector2Int(col, row);
-
-                if (!IsOccupied(pos))
-                    continue;
-
-                // fall
-                if (pos.y >= 1)   // can't fall on the bottom row
-                {
-                    if (!IsNeighbourOccupied(pos, Direction.Down))
-                    {
-                        MoveTetromino(pos, Vector2Int.down);
-                    }
-                }
+                var pos = activePiece_.Value.tetrominoPositions[i];
+                fallenTetrominos_[pos.x, pos.y] = tetrominos_[pos.x, pos.y];
             }
+
+            activePiece_ = null;
         }
+    }
+
+    private bool MovePiece(Direction dir)
+    {
+        if (!activePiece_.HasValue)
+            return false; 
+
+        var positions = new Vector2Int[4];
+        for (int i = 0; i < 4; i++)
+        {
+            positions[i] = activePiece_.Value.tetrominoPositions[i];
+        }
+
+        foreach (var pos in positions)
+        {
+            var newPos = pos.GetNeighbour(dir);
+            if (!IsPositionValid(newPos))
+                return false;
+
+            // can't move that way, don't do anything
+            if (IsNeighbourOccupied(pos, dir))
+                return false;
+        }
+
+        // get the tetrominos for the active piece
+        var tetrominos = new Tetromino[4];
+        var newPositions = new Vector2Int[4];
+        for (int i = 0; i < 4; i++)
+        {
+            var pos = positions[i];
+            newPositions[i] = pos.GetNeighbour(dir);
+
+            var t = tetrominos_[pos.x, pos.y];
+            if (t == null)
+                throw new System.Exception(string.Format("{0} is null", pos));
+
+            tetrominos[i] = t;
+            tetrominos_[pos.x, pos.y] = null;
+        }
+
+        // put the tetrominos in the new position
+        for (int i = 0; i < 4; i++)
+        {
+            var pos = newPositions[i];
+            activePiece_.Value.tetrominoPositions[i] = pos;
+            tetrominos[i].transform.position = new Vector3(pos.x, pos.y);
+            tetrominos_[pos.x, pos.y] = tetrominos[i];
+        }
+
+        return true;
+    }
+
+    private void MoveTetromino(Vector2Int start, Direction dir)
+    {
+        MoveTetromino(start, start.GetNeighbour(dir));
     }
 
     private void MoveTetromino(Vector2Int start, Vector2Int dir)
     {
-        if (!IsOccupied(start))
-            throw new System.Exception("no tetronimo at " + start);
-
-        var end = start + dir;
-
-        SetTetrominoPosition(start, end);
+        SetTetrominoPosition(start, start + dir);
     }
 
     private void SetTetrominoPosition(Vector2Int start, Vector2Int end)
@@ -107,6 +146,9 @@ public class TetrisGame : MonoBehaviour
         int y = start.y;
 
         var t = tetrominos_[x, y];
+        if (t == null)
+            throw new System.Exception();
+
         tetrominos_[x, y] = null;
 
         x = end.x;
@@ -116,33 +158,55 @@ public class TetrisGame : MonoBehaviour
         t.transform.position = new Vector3(x, y);
     }
 
-    private void SpawnTetronimo()
+    private void SpawnPiece()
     {
+        var pattern = piecePatterns[0];
+
         int x = columns / 2 - 1;
         int y = rows - 1;
 
-        var t = this.Instantiate<Tetromino>(
+        Piece newPiece = new Piece();
+        newPiece.tetrominoPositions = new Vector2Int[4];
+        for (int i = 0; i < 4; i++)
+        {
+            var pos = pattern.tetrominoPositions[i];
+
+            int tx = x + pos.x;
+            int ty = y + pos.y;
+
+            SpawnTetronimo(tx, ty);
+            newPiece.tetrominoPositions[i] = new Vector2Int(tx, ty);
+        }
+
+        activePiece_ = newPiece;
+    }
+
+    private void SpawnTetronimo(int x, int y)
+    {
+        this.Instantiate<Tetromino>(
             TetrisGame.Instance.tetromino,
             Vector3.zero,
             Quaternion.identity,
-            grid.transform);
+            grid.transform,
+            t =>
+            {
+                tetrominos_[x, y] = t;
+                t.transform.position = new Vector3(x, y);
 
-        tetrominos_[x, y] = t;
-        t.transform.position = new Vector3(x, y);
-
-        t.Colour = Color.red;
+                t.Colour = Color.red;
+            });
     }
 
     public bool IsNeighbourOccupied(Vector2Int pos, Direction dir)
     {
-        return IsOccupied(pos + GetDirection(dir));
+        return IsOccupied(pos.GetNeighbour(dir));
     }
 
     public bool IsOccupied(Vector2Int pos)
     {
         return IsOccupied(pos.x, pos.y);
     }
-            
+
     public bool IsOccupied(int x, int y)
     {
         if (!IsPositionValid(x, y))
@@ -150,8 +214,13 @@ public class TetrisGame : MonoBehaviour
             string message = string.Format("({0},{1}) is not a valid position", x, y);
             throw new System.Exception(message);
         }
-            
-        return tetrominos_[x, y] != null;
+
+        return fallenTetrominos_[x, y] != null;
+    }
+
+    public bool IsPositionValid(Vector2Int pos)
+    {
+        return IsPositionValid(pos.x, pos.y);
     }
 
     public bool IsPositionValid(int x, int y)
