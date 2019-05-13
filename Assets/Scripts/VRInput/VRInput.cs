@@ -4,33 +4,34 @@ using UnityEngine;
 using UnityEngine.XR;
 
 public class VRInput : MonoBehaviour {
-    public Transform rightHandTracker;
-    public Transform leftHandTracker;
-    public Vector3 basePosition;
+    public GameObject rightHandTracker_;
+    public GameObject leftHandTracker_;
+
+    public List<VRPickerNode> nodes_
+        = new List<VRPickerNode>();
+    private List<VRPickerData> nodeData_
+        = new List<VRPickerData>();
 
 	// Use this for initialization
 	void Start () {
-        basePosition = Camera.main.transform.position;
+        Vector3 basePosition = Camera.main.transform.position;
+        nodeData_ = new List<VRPickerData>()
+        {
+            new VRPickerData( rightHandTracker_, XRNode.RightHand ),
+            new VRPickerData( leftHandTracker_, XRNode.LeftHand )
+        };
+
+        foreach (var data in nodeData_)
+        {
+            nodes_.Add(new VRPickerNode(data, basePosition));
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 leftHandPos = InputTracking.GetLocalPosition(XRNode.LeftHand);
-        Vector3 rightHandPos = InputTracking.GetLocalPosition(XRNode.RightHand);
-
-        leftHandTracker.SetPositionAndRotation(
-            basePosition + leftHandPos,
-            InputTracking.GetLocalRotation(XRNode.LeftHand)
-        );
-
-        rightHandTracker.SetPositionAndRotation(
-            basePosition + rightHandPos,
-            InputTracking.GetLocalRotation(XRNode.RightHand)
-        );
-
-        rightHandTracker.gameObject.SetActive(rightHandPos != Vector3.zero);
-        leftHandTracker.gameObject.SetActive(leftHandPos != Vector3.zero);
-
-        Debug.Log(rightHandPos);
+        foreach(var pickerNode in nodes_)
+        {
+            pickerNode.Update();
+        }
 	}
 }
