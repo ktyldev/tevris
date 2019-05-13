@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class GameConstants {
+    // === interaction === //
+    public static float VRPickupRadius = 0.5f;
+
     // === input === //
     public static KeyCode OTButtonOnePress = KeyCode.JoystickButton0;
     public static KeyCode OTButtonTwoPress = KeyCode.JoystickButton1;
@@ -20,4 +23,10 @@ public static class GameConstants {
     public static string OTAxisLeftHorizontal = "OTAxisLeftHorizontal";
     public static string OTAxisRightVertical = "OTAxisRightVertical";
     public static string OTAxisRightHorizontal = "OTAxisRightHorizontal";
+
+    // === tags === //
+    public static string PickupTag = "Pickupable";
+
+    // === layers === //
+    public static int PickupLayer = 10;
 }

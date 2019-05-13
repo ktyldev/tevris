@@ -88,12 +88,19 @@ public class VRPickerNode {
     public void PickUp()
     {
         Debug.Log("[" + name_ + "]: picking up");
-        var pickup = GameObject.FindGameObjectWithTag("Player").GetComponent<Pickupable>();
-        if (pickup.PickUp())
+
+        RaycastHit hit;
+        int layerMask = 1 << GameConstants.PickupLayer;
+        if (Physics.SphereCast(basePosition_ + handPosition_, GameConstants.VRPickupRadius, Vector3.up, out hit, 1.0f, layerMask))
         {
-            heldItem_ = pickup;
-            heldRigidbody_ = pickup.gameObject.GetComponent<Rigidbody>();
+            var pickup = hit.collider.GetComponent<Pickupable>();
+            if (pickup.PickUp())
+            {
+                heldItem_ = pickup;
+                heldRigidbody_ = pickup.gameObject.GetComponent<Rigidbody>();
+            }
         }
+
     }
 
     private void LetGo()
