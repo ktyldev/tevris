@@ -10,7 +10,7 @@ public enum Direction
     Down,
     Left
 }
-
+// non-static
 public class TetrisGame : MonoBehaviour
 {
     private static readonly Vector2Int[] Directions = new[] 
@@ -47,12 +47,20 @@ public class TetrisGame : MonoBehaviour
     }
 
     private int frames_ = 0;
+    private bool dirty_ = false;
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P) && !dirty_)
+        {
+            SpawnTetronimo();
+            dirty_ = true;
+        }
+
         if (frames_ % 30 == 0)
         {
             Tick();
+            dirty_ = false;
         }
         frames_++;
     }
@@ -85,14 +93,24 @@ public class TetrisGame : MonoBehaviour
         if (!IsOccupied(start))
             throw new System.Exception("no tetronimo at " + start);
 
+        var end = start + dir;
+
+        SetTetrominoPosition(start, end);
+    }
+
+    private void SetTetrominoPosition(Vector2Int start, Vector2Int end)
+    {
+        if (IsOccupied(end))
+            throw new System.Exception();
+
         int x = start.x;
         int y = start.y;
 
         var t = tetrominos_[x, y];
         tetrominos_[x, y] = null;
 
-        x += dir.x;
-        y += dir.y;
+        x = end.x;
+        y = end.y;
 
         tetrominos_[x, y] = t;
         t.transform.position = new Vector3(x, y);
@@ -103,14 +121,15 @@ public class TetrisGame : MonoBehaviour
         int x = columns / 2 - 1;
         int y = rows - 1;
 
-        var t  = this.Instantiate<Tetromino>(
+        var t = this.Instantiate<Tetromino>(
             TetrisGame.Instance.tetromino,
             Vector3.zero,
             Quaternion.identity,
             grid.transform);
 
         tetrominos_[x, y] = t;
-        t.CanFall = true;
+        t.transform.position = new Vector3(x, y);
+
         t.Colour = Color.red;
     }
 
