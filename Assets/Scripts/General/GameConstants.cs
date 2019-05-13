@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class GameConstants {
-    // === button names === //
+    // === input === //
     public static KeyCode OTButtonOnePress = KeyCode.JoystickButton0;
     public static KeyCode OTButtonTwoPress = KeyCode.JoystickButton1;
     public static KeyCode OTButtonThreePress = KeyCode.JoystickButton2;
