@@ -25,8 +25,12 @@ public class VRPickerNode {
     private SphereCollider pickupTrigger_;
     private Transform visuals_;
 
+    private Vector3 handPosition_;
+    private Vector3 handVelocity_;
+
     private bool isHeld_;
     private Pickupable heldItem_;
+    private Rigidbody heldRigidbody_;
 
     private VRPickerData data_;
 
@@ -63,6 +67,7 @@ public class VRPickerNode {
         }
 
         if (visuals_ == null) return;
+        if (heldRigidbody_ != null) heldRigidbody_.velocity = Vector3.zero;
 
         (heldItem_ != null ? heldItem_.transform : visuals_).SetPositionAndRotation(
             basePosition_ + InputTracking.GetLocalPosition(data_.Node),
@@ -73,6 +78,11 @@ public class VRPickerNode {
             InputTracking.GetLocalPosition(data_.Node) != Vector3.zero &&
             heldItem_ == null
         );
+
+        var newPosition = InputTracking.GetLocalPosition(data_.Node);
+        var newVelocity = (newPosition - handPosition_) / Time.deltaTime;
+        handVelocity_ = Vector3.Lerp(handVelocity_, newVelocity, 0.2f);
+        handPosition_ = newPosition;
     }
 
     public void PickUp()
@@ -80,13 +90,20 @@ public class VRPickerNode {
         Debug.Log("[" + name_ + "]: picking up");
         var pickup = GameObject.FindGameObjectWithTag("Player").GetComponent<Pickupable>();
         if (pickup.PickUp())
+        {
             heldItem_ = pickup;
+            heldRigidbody_ = pickup.gameObject.GetComponent<Rigidbody>();
+        }
     }
 
     private void LetGo()
     {
         Debug.Log("[" + name_ + "]: letting go");
+        if (heldItem_ == null) return;
+        heldRigidbody_.velocity = handVelocity_;
+
         heldItem_.PutDown();
         heldItem_ = null;
+        heldRigidbody_ = null;
     }
 }
