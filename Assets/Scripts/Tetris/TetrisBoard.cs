@@ -20,9 +20,8 @@ public class TetrisBoard : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
-        RotatePiece(RotateDirection.Anticlockwise);	
-        RotatePiece(RotateDirection.Clockwise);	
+    void Start ()
+    {
 	}
 	
 	// Update is called once per frame
@@ -49,7 +48,11 @@ public class TetrisBoard : MonoBehaviour {
 
         var newPiece = new Piece();
         newPiece.Position = new Vector2Int(x, y);
-        newPiece.relativePositions = pattern.relativePositions;
+        newPiece.relativePositions = new Vector2Int[4];
+        for (int i = 0; i < 4; i++)
+        {
+            newPiece.relativePositions[i] = pattern.relativePositions[i];
+        }
 
         var tPositions = newPiece.TetrominoPositions;
         for (int i = 0; i < 4; i++)
@@ -131,15 +134,62 @@ public class TetrisBoard : MonoBehaviour {
 
     public bool RotatePiece(RotateDirection rDir)
     {
+        if (activePiece_ == null)
+            return false;
+
         var rotation = rDir == RotateDirection.Anticlockwise
             ? Quaternion.AngleAxis(90, Vector3.forward)
             : Quaternion.AngleAxis(-90, Vector3.forward);
 
-        // anticlockwise rotation
-        var testPoint = new Vector3(0, 1);
+        var rotatedRelativePositions = new Vector2Int[4];
+        for (int i = 0; i < 4; i++)
+        {
+            var pos = activePiece_.relativePositions[i];
+            var relPos = new Vector3(pos.x, pos.y);
+            relPos = rotation * relPos;
 
-        var result = rotation * testPoint;
-        print(result);
+            rotatedRelativePositions[i] = new Vector2Int
+            {
+                x = Mathf.RoundToInt(relPos.x),
+                y = Mathf.RoundToInt(relPos.y)
+            };
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            var newPos = activePiece_.Position + rotatedRelativePositions[i];
+            if (IsOccupied(newPos))
+                return false;
+        }
+
+        // all validation passed, time to move the pieces
+        var tetrominos = new Tetromino[4];
+        var oldPositions = activePiece_.TetrominoPositions;
+        for (int i = 0; i < 4; i++)
+        {
+            var pos = oldPositions[i];
+            var t = tetrominos_[pos.x, pos.y];
+            if (t == null)
+                throw new NullReferenceException();
+
+            tetrominos[i] = t;
+            tetrominos_[pos.x, pos.y] = null;
+        }
+
+        // rotate piece
+        for (int i = 0; i < 4; i++)
+        {
+            activePiece_.relativePositions[i] = rotatedRelativePositions[i];
+        }
+
+        // put minos in new positions
+        var newPositions = activePiece_.TetrominoPositions;
+        for (int i = 0; i < 4; i++)
+        {
+            var pos = newPositions[i];
+            tetrominos[i].transform.position = new Vector3(pos.x, pos.y);
+            tetrominos_[pos.x, pos.y] = tetrominos[i];
+        }
 
         return true;
     }

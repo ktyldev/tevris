@@ -15,6 +15,7 @@ public class TetrisGame : MonoBehaviour
     public GameObject grid;
 
     private TetrisBoard board_;
+    private TetrisInput input_;
 
     private void Awake()
     {
@@ -24,11 +25,13 @@ public class TetrisGame : MonoBehaviour
         Instance = this;
 
         board_ = grid.GetComponent<TetrisBoard>();
+        input_ = GetComponent<TetrisInput>();
     }
 
     // Use this for initialization
     void Start()
     {
+        input_.OnRotate.AddListener(rd => board_.RotatePiece(rd));
     }
 
     private int frames_ = 0;
