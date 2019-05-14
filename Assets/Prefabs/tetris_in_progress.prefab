@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 114875796931324414}
   - component: {fileID: 114638449803647166}
   m_Layer: 0
-  m_Name: Tetris
+  m_Name: tetris_in_progress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

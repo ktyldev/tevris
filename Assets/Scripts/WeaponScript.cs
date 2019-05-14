@@ -20,14 +20,8 @@ public class WeaponScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetMouseButton(0))
-        {
-            Firing = true;
-        }
-        else
-        {
-            Firing = false;
-        }
+        Firing = Input.GetMouseButton(0)
+            || Input.GetAxis(GameConstants.OTTriggerRightIndex) != 0.0f;
 
         if (Input.GetKeyDown("1"))
         {
