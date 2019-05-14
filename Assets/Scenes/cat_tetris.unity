@@ -276,7 +276,7 @@ MonoBehaviour:
     rotateAnticlockwise: 106
     hardDrop: 32
     softDrop: 99
-  selectedInputLayout: 1
+  selectedInputLayout: 0
 --- !u!4 &474327084
 Transform:
   m_ObjectHideFlags: 0
