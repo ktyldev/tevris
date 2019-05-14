@@ -198,6 +198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 231026869}
+  - component: {fileID: 231026870}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -218,6 +219,19 @@ Transform:
   m_Father: {fileID: 474327084}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &231026870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 231026868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21da62eae6f2aa9428cad8639bd53df2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rows: 20
+  columns: 10
 --- !u!1 &474327082
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,8 +307,8 @@ MonoBehaviour:
   - tetrominoPositions:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
-    - {x: 0, y: -1}
     - {x: -1, y: -1}
+    - {x: 0, y: -1}
   tetromino: {fileID: 1671080916}
   grid: {fileID: 231026868}
 --- !u!1001 &643767503
