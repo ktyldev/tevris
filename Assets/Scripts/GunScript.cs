@@ -8,7 +8,7 @@ public class GunScript : MonoBehaviour {
 
     public Rigidbody Bullet;
 
-    public float FireRate = 1f;
+    public float FireRate = 10f;
     float Timer = 0f;
 
     // Use this for initialization
@@ -20,23 +20,25 @@ public class GunScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (wP.Firing == true)
+        if (wP.gunActive == true)
         {
-            Timer -= Time.deltaTime;
-            if (Timer >= 0)
+            if (wP.Firing == true)
             {
-                Debug.Log("shooting");
-                Rigidbody Clone;
-                Clone = Instantiate(Bullet, transform.position, transform.rotation);
 
-                Clone.velocity = transform.TransformDirection(Vector3.forward * 10);
-                Timer = FireRate;
+                if (Timer <= 0)
+                {
+                    Rigidbody Clone;
+                    Clone = Instantiate(Bullet, transform.position, transform.rotation);
+
+                    Clone.velocity = transform.TransformDirection(Vector3.forward * 300);
+                    Timer = FireRate;
+                    GameObject.Destroy(Clone, 6f);
+                    wP.Firing = false;
+                }
 
             }
-            else
-            {
-                Debug.Log("Reloading");
-            }
-        }
-    }
+        } 
+        Timer -= Time.deltaTime;
+        wP.Firing = false;
+    } 
 }

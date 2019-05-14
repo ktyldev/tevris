@@ -9,21 +9,21 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1924662980865862}
+  m_RootGameObject: {fileID: 1675408443948066}
   m_IsPrefabAsset: 1
---- !u!1 &1924662980865862
+--- !u!1 &1675408443948066
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4020557833566534}
-  - component: {fileID: 33746978014518112}
-  - component: {fileID: 23144244523188104}
-  - component: {fileID: 65569932123026694}
-  - component: {fileID: 114708972487447994}
-  - component: {fileID: 114088801883807236}
+  - component: {fileID: 4194151497118914}
+  - component: {fileID: 33115968751927526}
+  - component: {fileID: 23169595292182254}
+  - component: {fileID: 65077968366732916}
+  - component: {fileID: 114035853784752816}
+  - component: {fileID: 114773571476060704}
   m_Layer: 0
   m_Name: Temp Gun
   m_TagString: Untagged
@@ -31,25 +31,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4020557833566534
+--- !u!4 &4194151497118914
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1924662980865862}
+  m_GameObject: {fileID: 1675408443948066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.71630406, y: 52.159702, z: 170.31895}
+  m_LocalPosition: {x: 5, y: 2, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23144244523188104
+--- !u!23 &23169595292182254
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1924662980865862}
+  m_GameObject: {fileID: 1675408443948066}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -79,48 +79,52 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33746978014518112
+--- !u!33 &33115968751927526
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1924662980865862}
+  m_GameObject: {fileID: 1675408443948066}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65569932123026694
+--- !u!65 &65077968366732916
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1924662980865862}
+  m_GameObject: {fileID: 1675408443948066}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114088801883807236
+--- !u!114 &114035853784752816
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1924662980865862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b514dd6a8fadbc4191951530cf848b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Firing: 0
---- !u!114 &114708972487447994
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1924662980865862}
+  m_GameObject: {fileID: 1675408443948066}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60b4f84a64328024baf5b21a26cf00b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wP: {fileID: 114088801883807236}
+  wP: {fileID: 114773571476060704}
   Bullet: {fileID: 54662447409263044, guid: 843795ede649c144590d2763a72feb4f, type: 2}
   FireRate: 1
+--- !u!114 &114773571476060704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1675408443948066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b514dd6a8fadbc4191951530cf848b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunActive: 0
+  laserActive: 0
+  Firing: 0
+  weaponSwitching: 0
+  currentWeapon: 1
