@@ -303,11 +303,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   piecePatterns:
-  - relativePositions:
+  - name: S
+    colour: {r: 0.078704596, g: 1, b: 0, a: 1}
+    relativePositions:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
     - {x: -1, y: -1}
     - {x: 0, y: -1}
+  - name: Z
+    colour: {r: 1, g: 0.019995866, b: 0, a: 1}
+    relativePositions:
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: 0, y: -1}
+    - {x: 1, y: -1}
+  - name: lomg
+    colour: {r: 0, g: 0.98978424, b: 1, a: 1}
+    relativePositions:
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 2, y: 0}
+  - name: square
+    colour: {r: 0.9898695, g: 1, b: 0, a: 1}
+    relativePositions:
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: -1, y: -1}
+    - {x: 0, y: -1}
+  - name: T
+    colour: {r: 0.84874153, g: 0, b: 1, a: 1}
+    relativePositions:
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: -1, y: -1}
+  - name: L
+    colour: {r: 1, g: 0.6113293, b: 0, a: 1}
+    relativePositions:
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: -1, y: -1}
+  - name: other L
+    colour: {r: 0.091415405, g: 0, b: 1, a: 1}
+    relativePositions:
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 1, y: -1}
   tetromino: {fileID: 1671080916}
   grid: {fileID: 231026868}
   tickLength: 0.5

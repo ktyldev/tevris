@@ -5,6 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class Piece
 {
+    public string name;
+    public Color colour;
     public Vector2Int[] relativePositions;
     public Vector2Int Position { get; set; } // root position of the piece
     public Vector2Int[] TetrominoPositions

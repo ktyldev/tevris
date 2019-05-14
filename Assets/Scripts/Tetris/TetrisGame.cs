@@ -69,7 +69,8 @@ public class TetrisGame : MonoBehaviour
 
         if (!board_.HasActivePiece)
         {
-            board_.SpawnPiece(piecePatterns[0], Color.red);
+            int r = Random.Range(0, piecePatterns.Length);
+            board_.SpawnPiece(piecePatterns[r]);
         }
     }
 }
