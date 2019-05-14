@@ -17,8 +17,16 @@ public class VRInput : MonoBehaviour {
         Vector3 basePosition = Camera.main.transform.position;
         nodeData_ = new List<VRPickerData>()
         {
-            new VRPickerData( rightHandTracker_, XRNode.RightHand, GameConstants.OTTriggerRightHand ),
-            new VRPickerData( leftHandTracker_, XRNode.LeftHand, GameConstants.OTTriggerLeftHand )
+            new VRPickerData(
+                rightHandTracker_,
+                XRNode.RightHand,
+                GameConstants.OTTriggerRightHand
+            ),
+            new VRPickerData(
+                leftHandTracker_,
+                XRNode.LeftHand,
+                GameConstants.OTTriggerLeftHand
+            )
         };
 
         foreach (var data in nodeData_)

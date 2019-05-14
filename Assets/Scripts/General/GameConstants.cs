@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class GameConstants {
     // === interaction === //
-    public static float VRPickupRadius = 0.5f;
+    public static float VRPickupRadius = 0.3f;
 
     // === input === //
     public static KeyCode OTButtonOnePress = KeyCode.JoystickButton0;

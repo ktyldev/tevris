@@ -34,6 +34,9 @@ public class VRPickerNode {
 
     private VRPickerData data_;
 
+    public Vector3 WorldPosition
+        => handPosition_ + basePosition_;
+
     public VRPickerNode(VRPickerData data, Vector3 basePosition)
     {
         data_ = data;
@@ -89,18 +92,38 @@ public class VRPickerNode {
     {
         Debug.Log("[" + name_ + "]: picking up");
 
-        RaycastHit hit;
         int layerMask = 1 << GameConstants.PickupLayer;
-        if (Physics.SphereCast(basePosition_ + handPosition_, GameConstants.VRPickupRadius, Vector3.up, out hit, 1.0f, layerMask))
+        Collider[] hitColliders = Physics.OverlapSphere(
+            WorldPosition,
+            GameConstants.VRPickupRadius,
+            layerMask
+        );
+
+        Pickupable pickedObject;
+        if (hitColliders.Length == 0) return;
+        else if (hitColliders.Length == 1)
         {
-            var pickup = hit.collider.GetComponent<Pickupable>();
-            if (pickup.PickUp())
+            pickedObject = hitColliders[0].gameObject.GetComponent<Pickupable>();
+        }
+        else
+        {
+            float smallestDistance = Mathf.Infinity;
+            Collider currentClosest = null;
+            foreach(var collider in hitColliders)
             {
-                heldItem_ = pickup;
-                heldRigidbody_ = pickup.gameObject.GetComponent<Rigidbody>();
+                float distance = (WorldPosition - collider.transform.position).magnitude;
+                if (distance < smallestDistance)
+                {
+                    currentClosest = collider;
+                    smallestDistance = distance;
+                }
             }
+
+            pickedObject = currentClosest.GetComponent<Pickupable>();
         }
 
+        heldItem_ = pickedObject;
+        heldRigidbody_ = pickedObject.gameObject.GetComponent<Rigidbody>();
     }
 
     private void LetGo()
