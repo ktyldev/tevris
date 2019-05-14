@@ -45,14 +45,6 @@ public class TetrisInput : MonoBehaviour
         OnDrop = new UnityEvent();
     }
 
-    // Use this for initialization
-    void Start()
-    {
-        OnMove.AddListener(md => print("move " + md));
-        OnRotate.AddListener(rd => print("rotate" + rd));
-        OnDrop.AddListener(() => print("hard drop"));
-    }
-
     // Update is called once per frame
     void Update()
     {

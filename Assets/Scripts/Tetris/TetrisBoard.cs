@@ -4,13 +4,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TetrisBoard : MonoBehaviour {
+public class TetrisBoard : MonoBehaviour
+{
 
     public int rows;
     public int columns;
     public Color borderColour;
 
-    private Tetromino[,] tetrominos_;   
+    private Tetromino[,] tetrominos_;
     private Piece activePiece_;
 
     public Vector2Int SpawnPos => new Vector2Int(columns / 2, rows - 1);
@@ -22,10 +23,10 @@ public class TetrisBoard : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         CreateBorder();
-	}
+    }
 
     private void CreateBorder()
     {
@@ -56,11 +57,12 @@ public class TetrisBoard : MonoBehaviour {
             renderer.material.color = borderColour;
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void Fall()
     {
@@ -117,10 +119,50 @@ public class TetrisBoard : MonoBehaviour {
     {
         activePiece_ = null;
 
+        ClearLines();
+    }
+
+    public void ClearLines()
+    {
         // check for cleared lines
 
         // start at the top
-        // if a line can be cleared, remove it and move all higher lines down
+        for (int row = rows - 1; row >= 0; row--)
+        {
+            bool rowFull = true;
+            for (int col = 0; col < columns; col++)
+            {
+                if (tetrominos_[col, row] == null)
+                {
+                    rowFull = false;
+                }                
+            }
+            if (rowFull)
+            {
+                // if a line can be cleared... 
+                print("clear row " + row);
+                for (int col = 0; col < columns; col++)
+                {
+                    // ...remove it... 
+                    var mino = tetrominos_[col, row];
+                    Destroy(mino.gameObject);
+                    tetrominos_[col, row] = null;
+                }
+
+                // ...and move all higher lines down
+                for (int r = row + 1; r < rows; r++)
+                {
+                    for (int col = 0; col < columns; col++)
+                    {
+                        if (!IsOccupied(col, r))
+                            continue;
+
+                        MoveTetromino(new Vector2Int(col, r), Direction.Down);
+                    }
+                }
+            }
+        }
+
     }
 
     public void DropPiece()
@@ -138,8 +180,8 @@ public class TetrisBoard : MonoBehaviour {
     }
 
     public bool MovePiece(MoveDirection mDir) =>
-        MovePiece(mDir == MoveDirection.Left 
-            ? Direction.Left 
+        MovePiece(mDir == MoveDirection.Left
+            ? Direction.Left
             : Direction.Right);
 
     public bool MovePiece(Direction dir)
@@ -277,7 +319,7 @@ public class TetrisBoard : MonoBehaviour {
         tetrominos_[x, y] = t;
         t.transform.position = new Vector3(x, y);
     }
-        
+
     public bool IsNeighbourOccupied(Vector2Int pos, Direction dir) =>
         IsOccupied(pos.GetNeighbour(dir));
 
