@@ -116,6 +116,11 @@ public class TetrisBoard : MonoBehaviour {
     public void DeactivatePiece()
     {
         activePiece_ = null;
+
+        // check for cleared lines
+
+        // start at the top
+        // if a line can be cleared, remove it and move all higher lines down
     }
 
     public void DropPiece()
