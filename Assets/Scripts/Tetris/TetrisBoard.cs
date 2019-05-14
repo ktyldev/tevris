@@ -254,11 +254,27 @@ public class TetrisBoard : MonoBehaviour
             };
         }
 
+        // if the piece is at the top of the board it bumps into the upper
+        // border. this can be accounted for by calculating how far past the 
+        // border it is and moving it down 
+        int moveOffset = 0;
         for (int i = 0; i < 4; i++)
         {
             var newPos = activePiece_.Position + rotatedRelativePositions[i];
+            if (newPos.y >= rows)
+            {
+                moveOffset = Math.Max(moveOffset, newPos.y - rows + 1);
+                continue;
+            }
+
             if (IsOccupied(newPos))
                 return false;
+        }
+
+        print(moveOffset);
+        for (int i = 0; i < moveOffset; i++)
+        {
+            MovePiece(Direction.Down);
         }
 
         // all validation passed, time to move the pieces
@@ -329,10 +345,7 @@ public class TetrisBoard : MonoBehaviour
     public bool IsOccupied(int x, int y)
     {
         if (!IsPositionValid(x, y))
-        {
-            var msg = string.Format("({0},{1}) is not a valid position", x, y);
-            throw new System.Exception(msg);
-        }
+            return false;
 
         // ignore minos in the active piece
         if (activePiece_ != null)
