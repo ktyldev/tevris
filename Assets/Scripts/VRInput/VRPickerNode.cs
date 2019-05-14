@@ -126,11 +126,13 @@ public class VRPickerNode {
         heldRigidbody_ = pickedObject.gameObject.GetComponent<Rigidbody>();
     }
 
-    private void LetGo()
+    public void LetGo()
     {
         Debug.Log("[" + name_ + "]: letting go");
         if (heldItem_ == null) return;
-        heldRigidbody_.velocity = handVelocity_;
+
+        // transfer motion to our object
+        heldRigidbody_.velocity = handVelocity_ * GameConstants.VRPickupVelocityTransfer;
 
         heldItem_.PutDown();
         heldItem_ = null;
