@@ -118,6 +118,20 @@ public class TetrisBoard : MonoBehaviour {
         activePiece_ = null;
     }
 
+    public void DropPiece()
+    {
+        if (activePiece_ == null)
+            return;
+
+        bool canDrop = true;
+        while (canDrop)
+        {
+            canDrop = MovePiece(Direction.Down);
+        }
+
+        DeactivatePiece();
+    }
+
     public bool MovePiece(MoveDirection mDir) =>
         MovePiece(mDir == MoveDirection.Left 
             ? Direction.Left 

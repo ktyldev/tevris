@@ -35,6 +35,7 @@ public class TetrisGame : MonoBehaviour
     {
         input_.OnMove.AddListener(md => board_.MovePiece(md));
         input_.OnRotate.AddListener(rd => board_.RotatePiece(rd));
+        input_.OnDrop.AddListener(board_.DropPiece);
 
         StartCoroutine(Run());
     }

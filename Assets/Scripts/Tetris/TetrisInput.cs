@@ -38,7 +38,6 @@ public class TetrisInput : MonoBehaviour
 
     private InputLayout inputLayout_ => inputLayouts[selectedInputLayout];
 
-
     private void Awake()
     {
         OnMove = new MoveInput();
