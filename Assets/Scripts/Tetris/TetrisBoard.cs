@@ -10,7 +10,7 @@ public class TetrisBoard : MonoBehaviour {
     public int columns;
 
     private Tetromino[,] tetrominos_;   
-    private Piece? activePiece_;
+    private Piece activePiece_;
 
     public Vector2Int SpawnPos => new Vector2Int(columns / 2, rows - 1);
 
@@ -21,7 +21,8 @@ public class TetrisBoard : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+        RotatePiece(RotateDirection.Anticlockwise);	
+        RotatePiece(RotateDirection.Clockwise);	
 	}
 	
 	// Update is called once per frame
@@ -31,7 +32,7 @@ public class TetrisBoard : MonoBehaviour {
 
     public void Fall()
     {
-        if (!activePiece_.HasValue)
+        if (activePiece_ == null)
             return;
 
         var result = MovePiece(Direction.Down);
@@ -47,16 +48,14 @@ public class TetrisBoard : MonoBehaviour {
         int y = SpawnPos.y;
 
         var newPiece = new Piece();
-        newPiece.tetrominoPositions = new Vector2Int[4];
+        newPiece.Position = new Vector2Int(x, y);
+        newPiece.relativePositions = pattern.relativePositions;
+
+        var tPositions = newPiece.TetrominoPositions;
         for (int i = 0; i < 4; i++)
         {
-            var pos = pattern.tetrominoPositions[i];
-
-            int tx = x + pos.x;
-            int ty = y + pos.y;
-
-            SpawnTetromino(tx, ty, colour);
-            newPiece.tetrominoPositions[i] = new Vector2Int(tx, ty);
+            var pos = tPositions[i];
+            SpawnTetromino(pos.x, pos.y, colour);
         }
 
         activePiece_ = newPiece;
@@ -85,13 +84,12 @@ public class TetrisBoard : MonoBehaviour {
 
     public bool MovePiece(Direction dir)
     {
-        if (!activePiece_.HasValue)
+        if (activePiece_ == null)
             return false;
 
         var oldPositions = new Vector2Int[4];
-        Array.Copy(activePiece_.Value.tetrominoPositions, oldPositions, 4);
+        Array.Copy(activePiece_.TetrominoPositions, oldPositions, 4);
 
-        var newPositions = new Vector2Int[4];
         for (int i = 0; i < 4; i++)
         {
             var pos = oldPositions[i];
@@ -101,11 +99,12 @@ public class TetrisBoard : MonoBehaviour {
 
             if (IsOccupied(newPos))
                 return false;
-
-            newPositions[i] = newPos;
         }
 
-        // new positions have been set, time to get the minos and move them
+        // move is ok
+        activePiece_.Position = activePiece_.Position.GetNeighbour(dir);
+
+        // get the minos and remove them from the grid
         var tetrominos = new Tetromino[4];
         for (int i = 0; i < 4; i++)
         {
@@ -119,13 +118,28 @@ public class TetrisBoard : MonoBehaviour {
         }
 
         // put minos in new positions
+        var newPositions = activePiece_.TetrominoPositions;
         for (int i = 0; i < 4; i++)
         {
             var pos = newPositions[i];
-            activePiece_.Value.tetrominoPositions[i] = pos;
             tetrominos[i].transform.position = new Vector3(pos.x, pos.y);
             tetrominos_[pos.x, pos.y] = tetrominos[i];
         }
+
+        return true;
+    }
+
+    public bool RotatePiece(RotateDirection rDir)
+    {
+        var rotation = rDir == RotateDirection.Anticlockwise
+            ? Quaternion.AngleAxis(90, Vector3.forward)
+            : Quaternion.AngleAxis(-90, Vector3.forward);
+
+        // anticlockwise rotation
+        var testPoint = new Vector3(0, 1);
+
+        var result = rotation * testPoint;
+        print(result);
 
         return true;
     }
@@ -172,11 +186,12 @@ public class TetrisBoard : MonoBehaviour {
         }
 
         // ignore minos in the active piece
-        if (activePiece_.HasValue)
+        if (activePiece_ != null)
         {
+            var tPositions = activePiece_.TetrominoPositions;
             for (int i = 0; i < 4; i++)
             {
-                var pos = activePiece_.Value.tetrominoPositions[i];
+                var pos = tPositions[i];
                 if (pos.x == x && pos.y == y)
                     return false;
             }

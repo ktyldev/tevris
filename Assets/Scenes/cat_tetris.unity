@@ -301,10 +301,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 711034817bc15de488df9bf696e61000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 20
-  columns: 10
   piecePatterns:
-  - tetrominoPositions:
+  - relativePositions:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
     - {x: -1, y: -1}
