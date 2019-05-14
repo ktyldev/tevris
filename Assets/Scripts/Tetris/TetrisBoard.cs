@@ -85,6 +85,11 @@ public class TetrisBoard : MonoBehaviour {
         activePiece_ = null;
     }
 
+    public bool MovePiece(MoveDirection mDir) =>
+        MovePiece(mDir == MoveDirection.Left 
+            ? Direction.Left 
+            : Direction.Right);
+
     public bool MovePiece(Direction dir)
     {
         if (activePiece_ == null)
