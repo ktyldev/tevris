@@ -6,6 +6,7 @@ using UnityEngine.XR;
 public class VRInput : MonoBehaviour {
     public GameObject rightHandTracker_;
     public GameObject leftHandTracker_;
+    public Material lineMaterial_;
 
     public List<VRPickerNode> nodes_
         = new List<VRPickerNode>();
@@ -20,12 +21,18 @@ public class VRInput : MonoBehaviour {
             new VRPickerData(
                 rightHandTracker_,
                 XRNode.RightHand,
-                GameConstants.OTTriggerRightHand
+                lineMaterial_,
+                GameConstants.OTTriggerRightHand,
+                GameConstants.OTTriggerRightIndexNearTouch,
+                GameConstants.OTTriggerRightIndexTouch
             ),
             new VRPickerData(
                 leftHandTracker_,
                 XRNode.LeftHand,
-                GameConstants.OTTriggerLeftHand
+                lineMaterial_,
+                GameConstants.OTTriggerLeftHand,
+                GameConstants.OTTriggerLeftIndexNearTouch,
+                GameConstants.OTTriggerLeftIndexTouch
             )
         };
 

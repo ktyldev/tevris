@@ -7,7 +7,7 @@ public static class GameConstants {
     public static float VRPickupRadius = 0.3f;
     public static float VRPickupVelocityTransfer = 1.25f;
     public static float ExplosionTransferSpeed = 0.3f; // meters per second
-    public static float GrenadeExplosionVelocity = 5.0f;
+    public static float GrenadeExplosionVelocity = 5000.0f;
 
     // === input === //
     public static KeyCode OTButtonOnePress = KeyCode.JoystickButton0;
@@ -19,13 +19,19 @@ public static class GameConstants {
 
     public static string OTTriggerLeftHand = "OTTriggerLeftHand";
     public static string OTTriggerLeftIndex = "OTTriggerLeftIndex";
+    public static string OTTriggerLeftIndexTouch = "OTTriggerLeftIndexTouch";
+    public static string OTTriggerLeftIndexNearTouch = "OTTriggerLeftIndexNearTouch";
+
     public static string OTTriggerRightHand = "OTTriggerRightHand";
     public static string OTTriggerRightIndex = "OTTriggerRightIndex";
+    public static string OTTriggerRightIndexTouch = "OTTriggerRightIndexTouch";
+    public static string OTTriggerRightIndexNearTouch = "OTTriggerRightIndexNearTouch";
 
     public static string OTAxisLeftVertical = "OTAxisLeftVertical";
     public static string OTAxisLeftHorizontal = "OTAxisLeftHorizontal";
     public static string OTAxisRightVertical = "OTAxisRightVertical";
     public static string OTAxisRightHorizontal = "OTAxisRightHorizontal";
+
 
     // === tags === //
     public static string PickupTag = "Pickupable";

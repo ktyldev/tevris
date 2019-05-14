@@ -8,13 +8,25 @@ public struct VRPickerData
 {
     public GameObject VisualPrefab;
     public XRNode Node;
+    public Material LineMaterial;
     public string PickupAxis;
+    public string LineAxis;
+    public string LineButton;
 
-    public VRPickerData(GameObject visualPrefab, XRNode node, string pickupAxis)
-    {
+    public VRPickerData(
+            GameObject visualPrefab, 
+            XRNode node, 
+            Material lineMaterial,
+            string pickupAxis, 
+            string lineAxis, 
+            string lineButton
+    ) {
         VisualPrefab = visualPrefab;
         Node = node;
+        LineMaterial = lineMaterial;
         PickupAxis = pickupAxis;
+        LineAxis = lineAxis;
+        LineButton = lineButton;
     }
 }
 
@@ -22,12 +34,13 @@ public class VRPickerNode {
     private string name_;
     private GameObject baseObject_;
     private Vector3 basePosition_;
-    private SphereCollider pickupTrigger_;
     private Transform visuals_;
+    private LineRenderer pickupRenderer_;
 
     private Vector3 handPosition_;
     private Vector3 handVelocity_;
 
+    private bool laserMode_;
     private bool isHeld_;
     private Pickupable heldItem_;
     private Rigidbody heldRigidbody_;
@@ -51,6 +64,13 @@ public class VRPickerNode {
             visuals_ = inst.transform;
             visuals_.parent = baseObject_.transform;
         }
+
+        pickupRenderer_ = baseObject_.AddComponent<LineRenderer>();
+        pickupRenderer_.material = data_.LineMaterial;
+        pickupRenderer_.startWidth = 0.02f;
+        pickupRenderer_.endWidth = 0.02f;
+        pickupRenderer_.startColor = Color.cyan;
+        pickupRenderer_.endColor = Color.cyan;
     }
 
     void SetBasePosition(Vector3 basePosition)
@@ -59,6 +79,12 @@ public class VRPickerNode {
     public void Update()
     {
         bool nowHeld = Input.GetAxis(data_.PickupAxis) != 0.0f;
+        bool noTracking = InputTracking.GetLocalPosition(data_.Node) == Vector3.zero;
+
+        laserMode_ =
+            Input.GetAxis(data_.LineAxis) == 0.0f  &&
+            !Input.GetButton(data_.LineButton);
+
 
         // has hold state changed?
         if (nowHeld != isHeld_)
@@ -75,6 +101,14 @@ public class VRPickerNode {
         var rotation = InputTracking.GetLocalRotation(data_.Node);
         visuals_.SetPositionAndRotation(position, rotation);
 
+        bool showLine = laserMode_ && heldItem_ == null && !noTracking;
+        pickupRenderer_.enabled = showLine;
+        pickupRenderer_.SetPositions(new []
+        {
+            position,
+            position + (rotation * Vector3.forward) * 1000.0f
+        });
+
         if (heldRigidbody_ != null)
         {
             heldRigidbody_.MovePosition(position);
@@ -86,7 +120,7 @@ public class VRPickerNode {
         }
 
         visuals_.gameObject.SetActive(
-            InputTracking.GetLocalPosition(data_.Node) != Vector3.zero &&
+            !noTracking &&
             heldItem_ == null
         );
 
@@ -99,7 +133,15 @@ public class VRPickerNode {
     public void PickUp()
     {
         Debug.Log("[" + name_ + "]: picking up");
+        PickUpProximity();
+    }
 
+    private void PickUpLaser()
+    {
+    }
+
+    private void PickUpProximity()
+    {
         int layerMask = 1 << GameConstants.PickupLayer;
         Collider[] hitColliders = Physics.OverlapSphere(
             WorldPosition,
