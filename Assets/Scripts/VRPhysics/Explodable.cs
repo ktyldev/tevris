@@ -43,7 +43,7 @@ public class Explodable : MonoBehaviour {
             var explodable = collider.GetComponent<Explodable>();
             if (explodable != null)
             {
-                explodable.Explode(diff.magnitude / GameConstants.VRSoundSpeed);
+                explodable.Explode(diff.magnitude / GameConstants.ExplosionTransferSpeed);
             }
 
             var destroyable = collider.GetComponent<Destroyable>();
