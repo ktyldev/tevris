@@ -25,7 +25,7 @@ public enum DropType
 public class MoveInput : UnityEvent<MoveDirection> { }
 public class RotateInput : UnityEvent<RotateDirection> { }
 
-public class TetrisController : MonoBehaviour
+public class TetrisInput : MonoBehaviour
 {
     public InputLayout[] inputLayouts;
     public int selectedInputLayout = 0;
