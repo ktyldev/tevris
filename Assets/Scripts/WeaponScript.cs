@@ -6,16 +6,16 @@ public class WeaponScript : MonoBehaviour {
 
     public bool gunActive = false;
     public bool laserActive = false;
+    public bool FireWorkActive = false;
 
     public bool Firing;
 
-    public bool weaponSwitching;
     public int currentWeapon = 1;
 
 
 	// Use this for initialization
 	void Start () {
-        weaponSwitching = true;
+
 	}
 	
 	// Update is called once per frame
@@ -32,12 +32,10 @@ public class WeaponScript : MonoBehaviour {
         if (Input.GetKeyDown("1"))
         {
             currentWeapon = 1;
-            weaponSwitching = true;
         }
         else if (Input.GetKeyDown("2"))
         {
             currentWeapon = 0;
-            weaponSwitching = true;
         }
 
         switch (currentWeapon)

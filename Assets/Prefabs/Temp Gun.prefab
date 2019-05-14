@@ -38,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1675408443948066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 2, z: 4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wP: {fileID: 114773571476060704}
-  Bullet: {fileID: 54662447409263044, guid: 843795ede649c144590d2763a72feb4f, type: 2}
+  Bullet: {fileID: 54614529896675490, guid: 843795ede649c144590d2763a72feb4f, type: 2}
   FireRate: 1
 --- !u!114 &114773571476060704
 MonoBehaviour:
@@ -125,6 +125,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunActive: 0
   laserActive: 0
+  FireWorkActive: 0
   Firing: 0
-  weaponSwitching: 0
   currentWeapon: 1
