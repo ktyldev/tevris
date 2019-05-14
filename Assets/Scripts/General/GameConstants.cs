@@ -6,6 +6,7 @@ public static class GameConstants {
     // === interaction === //
     public static float VRPickupRadius = 0.3f;
     public static float VRPickupVelocityTransfer = 1.25f;
+    public static float VRSoundSpeed = 343.0f; // meters(units) per second
 
     // === input === //
     public static KeyCode OTButtonOnePress = KeyCode.JoystickButton0;

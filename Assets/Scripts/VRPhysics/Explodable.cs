@@ -10,8 +10,14 @@ public class Explodable : MonoBehaviour {
     [SerializeField]
     private float explosionStrength = 100.0f;
 
-    public void Explode()
+    public void Explode(float time = 0.0f)
     {
+        if (time > 0.0f)
+        {
+            StartCoroutine(ExplodeIn(time));
+            return;
+        }
+
         Collider[] hitColliders = Physics.OverlapSphere(
             transform.position,
             explosionRadius,
@@ -37,7 +43,7 @@ public class Explodable : MonoBehaviour {
             var explodable = collider.GetComponent<Explodable>();
             if (explodable != null)
             {
-                explodable.Explode();
+                explodable.Explode(diff.magnitude / GameConstants.VRSoundSpeed);
             }
 
             var destroyable = collider.GetComponent<Destroyable>();
@@ -51,5 +57,11 @@ public class Explodable : MonoBehaviour {
         gameObject
             .GetComponent<Destroyable>()
             .Destroy(DestructionMethod.Explosion);
+    }
+
+    public IEnumerator ExplodeIn(float time)
+    {
+        yield return new WaitForSeconds(time);
+        this.Explode();
     }
 }
