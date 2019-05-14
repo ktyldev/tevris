@@ -184,7 +184,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 224082723}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 5, y: 10, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -232,6 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rows: 20
   columns: 10
+  borderColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &474327082
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +284,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 474327082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 231026869}
@@ -302,13 +303,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   piecePatterns:
-  - relativePositions:
+  - name: S
+    colour: {r: 0.078704596, g: 1, b: 0, a: 1}
+    relativePositions:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
     - {x: -1, y: -1}
     - {x: 0, y: -1}
+  - name: Z
+    colour: {r: 1, g: 0.019995866, b: 0, a: 1}
+    relativePositions:
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: 0, y: -1}
+    - {x: 1, y: -1}
+  - name: lomg
+    colour: {r: 0, g: 0.98978424, b: 1, a: 1}
+    relativePositions:
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 2, y: 0}
+  - name: square
+    colour: {r: 0.9898695, g: 1, b: 0, a: 1}
+    relativePositions:
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: -1, y: -1}
+    - {x: 0, y: -1}
+  - name: T
+    colour: {r: 0.84874153, g: 0, b: 1, a: 1}
+    relativePositions:
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: -1, y: -1}
+  - name: L
+    colour: {r: 1, g: 0.6113293, b: 0, a: 1}
+    relativePositions:
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: -1, y: -1}
+  - name: other L
+    colour: {r: 0.091415405, g: 0, b: 1, a: 1}
+    relativePositions:
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 1, y: -1}
   tetromino: {fileID: 1671080916}
   grid: {fileID: 231026868}
+  tickLength: 0.5
+  softDropTickLength: 0.05
 --- !u!1001 &643767503
 Prefab:
   m_ObjectHideFlags: 0

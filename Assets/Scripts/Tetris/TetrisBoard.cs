@@ -8,11 +8,13 @@ public class TetrisBoard : MonoBehaviour {
 
     public int rows;
     public int columns;
+    public Color borderColour;
 
     private Tetromino[,] tetrominos_;   
     private Piece activePiece_;
 
     public Vector2Int SpawnPos => new Vector2Int(columns / 2, rows - 1);
+    public bool HasActivePiece => activePiece_ != null;
 
     private void Awake()
     {
@@ -22,7 +24,38 @@ public class TetrisBoard : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        CreateBorder();
 	}
+
+    private void CreateBorder()
+    {
+        var borders = new GameObject();
+        borders.transform.SetParent(transform);
+        borders.name = "Borders";
+
+        var botBorder = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        botBorder.transform.position = new Vector3(columns / 2 - 0.5f, -1);
+        botBorder.transform.localScale = new Vector3(columns + 2, 1, 1);
+        botBorder.transform.SetParent(borders.transform);
+
+        var topBorder = Instantiate(botBorder);
+        topBorder.transform.position = new Vector3(columns / 2 - 0.5f, rows);
+        topBorder.transform.SetParent(borders.transform);
+
+        var leftBorder = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        leftBorder.transform.position = new Vector3(-1, rows / 2 - 0.5f);
+        leftBorder.transform.localScale = new Vector3(1, rows, 1);
+        leftBorder.transform.SetParent(borders.transform);
+
+        var rightBorder = Instantiate(leftBorder);
+        rightBorder.transform.position = new Vector3(columns, rows / 2 - 0.5f);
+        rightBorder.transform.SetParent(borders.transform);
+
+        foreach (var renderer in borders.GetComponentsInChildren<Renderer>())
+        {
+            renderer.material.color = borderColour;
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -41,7 +74,7 @@ public class TetrisBoard : MonoBehaviour {
         }
     }
 
-    public void SpawnPiece(Piece pattern, Color colour)
+    public void SpawnPiece(Piece pattern)
     {
         int x = SpawnPos.x;
         int y = SpawnPos.y;
@@ -58,7 +91,7 @@ public class TetrisBoard : MonoBehaviour {
         for (int i = 0; i < 4; i++)
         {
             var pos = tPositions[i];
-            SpawnTetromino(pos.x, pos.y, colour);
+            SpawnTetromino(pos.x, pos.y, pattern.colour);
         }
 
         activePiece_ = newPiece;
@@ -84,6 +117,25 @@ public class TetrisBoard : MonoBehaviour {
     {
         activePiece_ = null;
     }
+
+    public void DropPiece()
+    {
+        if (activePiece_ == null)
+            return;
+
+        bool canDrop = true;
+        while (canDrop)
+        {
+            canDrop = MovePiece(Direction.Down);
+        }
+
+        DeactivatePiece();
+    }
+
+    public bool MovePiece(MoveDirection mDir) =>
+        MovePiece(mDir == MoveDirection.Left 
+            ? Direction.Left 
+            : Direction.Right);
 
     public bool MovePiece(Direction dir)
     {
