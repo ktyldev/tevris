@@ -69,13 +69,21 @@ public class VRPickerNode {
             isHeld_ = nowHeld;
         }
 
-        if (visuals_ == null) return;
         if (heldRigidbody_ != null) heldRigidbody_.velocity = Vector3.zero;
 
-        (heldItem_ != null ? heldItem_.transform : visuals_).SetPositionAndRotation(
-            basePosition_ + InputTracking.GetLocalPosition(data_.Node),
-            InputTracking.GetLocalRotation(data_.Node)
-        );
+        var position = basePosition_ + InputTracking.GetLocalPosition(data_.Node);
+        var rotation = InputTracking.GetLocalRotation(data_.Node);
+        visuals_.SetPositionAndRotation(position, rotation);
+
+        if (heldRigidbody_ != null)
+        {
+            heldRigidbody_.MovePosition(position);
+            heldRigidbody_.MoveRotation(rotation);
+        }
+        else if (heldItem_ != null)
+        {
+            heldItem_.transform.SetPositionAndRotation(position, rotation);
+        }
 
         visuals_.gameObject.SetActive(
             InputTracking.GetLocalPosition(data_.Node) != Vector3.zero &&
@@ -111,7 +119,7 @@ public class VRPickerNode {
             Collider currentClosest = null;
             foreach(var collider in hitColliders)
             {
-                float distance = (WorldPosition - collider.transform.position).magnitude;
+                float distance = Vector3.Distance(WorldPosition, collider.transform.position);
                 if (distance < smallestDistance)
                 {
                     currentClosest = collider;
@@ -121,6 +129,8 @@ public class VRPickerNode {
 
             pickedObject = currentClosest.GetComponent<Pickupable>();
         }
+
+        if (!pickedObject.PickUp()) return;
 
         heldItem_ = pickedObject;
         heldRigidbody_ = pickedObject.gameObject.GetComponent<Rigidbody>();

@@ -7,6 +7,7 @@ public static class GameConstants {
     public static float VRPickupRadius = 0.3f;
     public static float VRPickupVelocityTransfer = 1.25f;
     public static float ExplosionTransferSpeed = 0.3f; // meters per second
+    public static float GrenadeExplosionVelocity = 5.0f;
 
     // === input === //
     public static KeyCode OTButtonOnePress = KeyCode.JoystickButton0;

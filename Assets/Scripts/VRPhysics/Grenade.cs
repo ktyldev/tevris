@@ -5,20 +5,29 @@ using UnityEngine;
 [RequireComponent(typeof(Explodable))]
 public class Grenade : Pickupable {
 
-    bool isActive = false;
+    bool isActive_ = false;
 
     void Start()
     {
         // when you let go, the grenade activates.
-        onPutDown.AddListener(() => isActive = true);
+        onPutDown.AddListener(() => isActive_ = true);
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (!isActive) return;
+        if (!isActive_) return;
 
-        // we're exploding!
-        Debug.Log("boom!");
-        this.GetComponent<Explodable>().Explode();
+        var explodable = this.GetComponent<Explodable>();
+
+        float velocity = collision.relativeVelocity.magnitude;
+
+        if (velocity < GameConstants.GrenadeExplosionVelocity)
+        {
+            // deactivate if we're not dropped with enough force
+            isActive_ = false;
+            return;
+        }
+
+        explodable.Explode();
     }
 }
