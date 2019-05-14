@@ -33,6 +33,11 @@ public class TetrisInput : MonoBehaviour
     public UnityEvent<MoveDirection> OnMove { get; private set; }
     public UnityEvent<RotateDirection> OnRotate { get; private set; }
     public UnityEvent OnDrop { get; private set; }
+    public bool SoftDrop => Input.GetKey(inputLayout_.softDrop);
+    public bool SoftDropStart => Input.GetKeyDown(inputLayout_.softDrop);
+
+    private InputLayout inputLayout_ => inputLayouts[selectedInputLayout];
+
 
     private void Awake()
     {
@@ -52,7 +57,7 @@ public class TetrisInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var layout = inputLayouts[selectedInputLayout];
+        var layout = inputLayout_;
 
         // drop
         // TODO: soft drop

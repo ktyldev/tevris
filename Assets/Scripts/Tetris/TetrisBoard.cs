@@ -14,6 +14,7 @@ public class TetrisBoard : MonoBehaviour {
     private Piece activePiece_;
 
     public Vector2Int SpawnPos => new Vector2Int(columns / 2, rows - 1);
+    public bool HasActivePiece => activePiece_ != null;
 
     private void Awake()
     {

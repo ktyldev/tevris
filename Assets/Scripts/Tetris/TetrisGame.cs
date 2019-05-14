@@ -13,6 +13,8 @@ public class TetrisGame : MonoBehaviour
     public Piece[] piecePatterns;
     public GameObject tetromino;
     public GameObject grid;
+    public float tickLength;
+    public float softDropTickLength;
 
     private TetrisBoard board_;
     private TetrisInput input_;
@@ -33,29 +35,40 @@ public class TetrisGame : MonoBehaviour
     {
         input_.OnMove.AddListener(md => board_.MovePiece(md));
         input_.OnRotate.AddListener(rd => board_.RotatePiece(rd));
+
+        StartCoroutine(Run());
     }
 
-    private int frames_ = 0;
-    private bool dirty_ = false;
-    // Update is called once per frame
-    void Update()
+    private IEnumerator Run()
     {
-        if (Input.GetKeyDown(KeyCode.P) && !dirty_)
+        bool gameOver = false;
+        while (!gameOver)
         {
-            board_.SpawnPiece(piecePatterns[0], Color.red);
-            dirty_ = true;
-        }
+            float waitTime = input_.SoftDrop 
+                ? softDropTickLength
+                : tickLength;
 
-        if (frames_ % 30 == 0)
-        {
+            float elapsed = 0;
+            while (elapsed < waitTime)
+            {
+                if (input_.SoftDropStart)
+                    break;
+
+                elapsed += Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+
             Tick();
-            dirty_ = false;
         }
-        frames_++;
     }
 
     private void Tick()
     {
         board_.Fall();
+
+        if (!board_.HasActivePiece)
+        {
+            board_.SpawnPiece(piecePatterns[0], Color.red);
+        }
     }
 }
