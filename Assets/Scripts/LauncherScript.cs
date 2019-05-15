@@ -14,14 +14,8 @@ public class LauncherScript : MonoBehaviour {
     public int ammo = 10;
     int timesFired = 0;
     // need a way to reset for new gun or somehing
+    // can call resetAmmo() to reload
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (wP.FireWorkActive == true)
@@ -47,5 +41,12 @@ public class LauncherScript : MonoBehaviour {
         }
         Timer -= Time.deltaTime;
         wP.Firing = false;
+    }
+
+    void resetAmmo()
+    {
+
+        timesFired = 0;
+
     }
 }

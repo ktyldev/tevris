@@ -17,5 +17,8 @@ public class Rocket : MonoBehaviour {
         Destroy(gameObject);
         Destroy(exp, totalDuration);
 
+
+        //do  damage or something here//
+
     }
 }

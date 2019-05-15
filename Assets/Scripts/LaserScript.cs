@@ -18,6 +18,7 @@ public class LaserScript : MonoBehaviour {
     public float ammo = 10f;
     float timeFired = 0.0f;
     // need a way to reset for new gun or somehing
+    // can call resetAmmo() to reload
 
     void Start () {
         rend = GetComponent<Renderer>();
@@ -74,7 +75,7 @@ public class LaserScript : MonoBehaviour {
                         Line.SetPosition(1, hit.point);
                         if (hit.rigidbody)
                         {
-                            //do something here//
+                            //do  damage or something here//
                         }
                     }
 
@@ -92,5 +93,11 @@ public class LaserScript : MonoBehaviour {
             }
 
         }
+    }
+
+    void resetAmmo() {
+
+        timeFired = 0.0f;
+
     }
 }
