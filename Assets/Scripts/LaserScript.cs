@@ -51,10 +51,10 @@ public class LaserScript : MonoBehaviour {
     {
         if(wP.laserActive == true)
         {
-            Line.enabled = true;
-            while (wP.Firing == true)
+            if (timeFired <= ammo)
             {
-                if (timeFired <= ammo)
+                Line.enabled = true;
+                while (wP.Firing == true)
                 {
                     if (particle.isPlaying)
                     {
@@ -80,15 +80,17 @@ public class LaserScript : MonoBehaviour {
 
                     else
                         Line.SetPosition(1, ray.GetPoint(100));
+                    yield return null;
                 }
-                yield return null;
+                
             }
             Line.enabled = false;
-            if(particle.isPlaying == true)
+            if (particle.isPlaying == true)
             {
                 particle.Stop();
                 particle2.Stop();
             }
+
         }
     }
 }
