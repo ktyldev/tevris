@@ -16,6 +16,24 @@ public class TetrisBoard : MonoBehaviour
 
     public Vector2Int SpawnPos => new Vector2Int(columns / 2, rows - 1);
     public bool HasActivePiece => activePiece_ != null;
+    public bool ActivePieceLanded
+    {
+        get
+        {
+            if (!HasActivePiece)
+                return false;
+
+            for (int i = 0; i < 4; i++)
+            {
+                var pos = activePiece_.TetrominoPositions[i];
+                var down = pos.GetNeighbour(Direction.Down);
+                if (IsOccupied(down) || !IsPositionValid(down))
+                    return true;
+            }
+
+            return false;
+        }
+    }
 
     private void Awake()
     {
@@ -81,14 +99,7 @@ public class TetrisBoard : MonoBehaviour
 
     public void Fall()
     {
-        if (activePiece_ == null)
-            return;
-
-        var result = MovePiece(Direction.Down);
-        if (!result)
-        {
-            DeactivatePiece();
-        }
+        MovePiece(Direction.Down);
     }
 
     public bool SpawnPiece(Piece pattern)
@@ -156,7 +167,7 @@ public class TetrisBoard : MonoBehaviour
                 if (tetrominos_[col, row] == null)
                 {
                     rowFull = false;
-                }                
+                }
             }
             if (rowFull)
             {
@@ -286,7 +297,12 @@ public class TetrisBoard : MonoBehaviour
             // piece is overlapping top wall
             if (newPos.y >= rows)
             {
-                yOffset = Math.Max(yOffset, newPos.y - rows + 1);
+                yOffset = Math.Min(yOffset, rows - newPos.y - 1);
+                continue;
+            }
+            if (newPos.y < 0)
+            {
+                yOffset = Math.Max(yOffset, -newPos.y);
                 continue;
             }
 
@@ -304,13 +320,23 @@ public class TetrisBoard : MonoBehaviour
                 xOffset = Math.Min(xOffset, columns - newPos.x - 1);
                 continue;
             }
-
         }
 
-        for (int i = 0; i < yOffset; i++)
+        if (yOffset > 0)    // move up
         {
-            MovePiece(Direction.Down);
+            for (int i = 0; i < yOffset; i++)
+            {
+                MovePiece(Direction.Up);
+            }
         }
+        else
+        {
+            for (int i = 0; i > yOffset; i--)
+            {
+                MovePiece(Direction.Down);
+            } 
+        }
+
         if (xOffset > 0)    // move right
         {
             for (int i = 0; i < xOffset; i++)
@@ -324,7 +350,7 @@ public class TetrisBoard : MonoBehaviour
             {
                 MovePiece(Direction.Left);
             }
-            
+
         }
 
         // all validation passed, time to move the pieces
