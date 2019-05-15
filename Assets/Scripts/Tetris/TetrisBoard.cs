@@ -91,7 +91,7 @@ public class TetrisBoard : MonoBehaviour
         }
     }
 
-    public void SpawnPiece(Piece pattern)
+    public bool SpawnPiece(Piece pattern)
     {
         int x = SpawnPos.x;
         int y = SpawnPos.y;
@@ -108,10 +108,16 @@ public class TetrisBoard : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             var pos = tPositions[i];
+
+            // spawn location is occupied - game over
+            if (IsOccupied(pos))
+                return false;
+
             SpawnTetromino(pos.x, pos.y, pattern.colour);
         }
 
         activePiece_ = newPiece;
+        return true;
     }
 
     public void SpawnTetromino(int x, int y, Color colour)

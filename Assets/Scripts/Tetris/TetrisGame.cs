@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Extensions;
 using System.Linq;
+using UnityEngine.Events;
 
 
 // non-static
@@ -75,7 +76,11 @@ public class TetrisGame : MonoBehaviour
         if (!board_.HasActivePiece)
         {
             int r = Random.Range(0, piecePatterns.Length);
-            board_.SpawnPiece(piecePatterns[r]);
+            if (!board_.SpawnPiece(piecePatterns[r]))
+            {
+                StartCoroutine(DoGameOver());
+                return;
+            }
         }
 
         ticks_++;
@@ -85,6 +90,22 @@ public class TetrisGame : MonoBehaviour
     {
         gameOver_ = false;
         StartCoroutine(Run());
+    }
+
+    public IEnumerator DoGameOver()
+    {
+        bool done = false;
+        UnityAction listener = () => done = true;
+
+        input_.OnContinue.AddListener(listener);
+        gameOver_ = true;
+
+        // TODO: start pieces flashing
+
+        yield return new WaitUntil(() => done);
+
+        board_.Clear();
+        input_.OnContinue.RemoveListener(listener);
     }
 
     public void GameOver()

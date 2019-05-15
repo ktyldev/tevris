@@ -27,12 +27,13 @@ public class RotateInput : UnityEvent<RotateDirection> { }
 
 public class TetrisInput : MonoBehaviour
 {
-    public InputLayout[] inputLayouts;
-    public int selectedInputLayout = 0;
-
     // meta
     public KeyCode startGame;
     public KeyCode endGame;
+    public KeyCode @continue;
+
+    public InputLayout[] inputLayouts;
+    public int selectedInputLayout = 0;
 
     // piece control
     public UnityEvent<MoveDirection> OnMove { get; private set; }
@@ -42,6 +43,7 @@ public class TetrisInput : MonoBehaviour
     // game management
     public UnityEvent OnStartGame { get; private set; } = new UnityEvent();
     public UnityEvent OnEndGame { get; private set; } = new UnityEvent();
+    public UnityEvent OnContinue { get; private set; } = new UnityEvent();
 
     public bool SoftDrop => Input.GetKey(inputLayout_.softDrop);
     public bool SoftDropStart => Input.GetKeyDown(inputLayout_.softDrop);
@@ -67,6 +69,11 @@ public class TetrisInput : MonoBehaviour
         if (Input.GetKeyDown(startGame))
         {
             OnStartGame.Invoke();
+        }
+
+        if (Input.GetKeyDown(@continue))
+        {
+            OnContinue.Invoke();
         }
 
         GameInput();
