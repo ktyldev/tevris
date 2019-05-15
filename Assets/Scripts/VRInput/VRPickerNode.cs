@@ -146,52 +146,31 @@ public class VRPickerNode {
 
     private bool PickUpLaser()
     {
-        Debug.Log("doing laser pickup");
         float distance = GameConstants.VRLaserPickupMaxDistance;
         float alpha = Mathf.Deg2Rad * GameConstants.VRLaserPickupMaxAngle;
         float radius = distance * Mathf.Tan(alpha);
 
         Vector3 direction = handRotation_ * Vector3.forward;
 
-        RaycastHit[] hits
-            = Physics.SphereCastAll(
+        RaycastHit hit;
+
+        bool hasHit
+            = PhysicsExtensions.ConeCastAngle(
                 worldPosition_,
-                radius,
+                GameConstants.VRLaserPickupMaxAngle,
                 direction,
-                distance,
+                out hit,
+                GameConstants.VRLaserPickupMaxDistance,
                 layerMask_
             );
 
+        if (!hasHit) return false;
 
-        // minimum angle allowed is alpha
-        float smallestAngle = Mathf.Rad2Deg * alpha;
-        Pickupable closest = null;
+        var hitPickup = hit.collider.GetComponent<Pickupable>();
+        if (hitPickup == null || !hitPickup.PickUp()) return false;
 
-        foreach(var hit in hits)
-        {
-            Collider currentCollider = hit.collider;
-            var pickupable = currentCollider.GetComponent<Pickupable>();
-
-            if (pickupable.IsPickedUp) continue;
-
-            float relativeAngle =
-                Vector3.Angle(
-                    direction,
-                    (hit.collider.transform.position - worldPosition_).normalized
-                );
-
-            if (relativeAngle <= smallestAngle)
-            {
-                smallestAngle = relativeAngle;
-                closest = pickupable;
-            }
-        }
-
-        // this shouldn't happen, but it doesn't hurt to check
-        if (closest == null || !closest.PickUp()) return false;
-
-        heldItem_ = closest;
-        heldRigidbody_ = closest.GetComponent<Rigidbody>();
+        heldItem_ = hitPickup;
+        heldRigidbody_ = hitPickup.GetComponent<Rigidbody>();
 
         return true;
     }
@@ -239,8 +218,25 @@ public class VRPickerNode {
     {
         if (heldItem_ == null) return;
 
+        float minBound = GameConstants.VRVelocityScaleBounds.x;
+        float maxBound = GameConstants.VRVelocityScaleBounds.y;
+
+        float velocityScaleLerpValue
+            = Mathf.Clamp01((handVelocity_.magnitude - minBound) / (maxBound - minBound));
+
+        float velocityScale
+            = Mathf.Lerp(
+                GameConstants.VRVelocityScaleValues.x,
+                GameConstants.VRVelocityScaleValues.y,
+                velocityScaleLerpValue
+            );
+
+        Vector3 scaledVelocity = handVelocity_ * velocityScale;
+
+        Debug.Log(handVelocity_ + " => " + scaledVelocity.magnitude);
+
         // transfer motion to our object
-        heldRigidbody_.velocity = handVelocity_ * GameConstants.VRPickupVelocityTransfer;
+        heldRigidbody_.velocity = scaledVelocity;
 
         heldItem_.PutDown();
         heldItem_ = null;

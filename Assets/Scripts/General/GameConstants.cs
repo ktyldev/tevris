@@ -5,7 +5,12 @@ using UnityEngine;
 public static class GameConstants {
     // === interaction === //
     public const float VRPickupRadius = 0.3f;
-    public const float VRPickupVelocityTransfer = 1.25f;
+
+    public static Vector2 VRVelocityScaleBounds = new Vector2( 3.0f, 9.0f );
+    public static Vector2 VRVelocityScaleValues = new Vector2( 1.25f, 3.25f );
+
+    public const float VRPickupVelocityTransfer = 3.25f;
+
     public const float VRLaserPickupMaxAngle = 3.8f;
     public const float VRLaserPickupMaxDistance = 50.0f;
 
