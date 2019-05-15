@@ -45,7 +45,7 @@ public class TetrisBoard : MonoBehaviour
         CreateBorder();
 
         var translation = new Vector3(-columns / 2 + 0.5f, 1.5f);
-        transform.Translate(translation);
+        transform.Translate(translation, Space.Self);
     }
 
     private void CreateBorder()
@@ -76,6 +76,8 @@ public class TetrisBoard : MonoBehaviour
         {
             renderer.material.color = borderColour;
         }
+
+        borders.transform.localPosition = Vector3.zero;
     }
 
     // Update is called once per frame
