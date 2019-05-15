@@ -22,7 +22,6 @@ public class TetrisBoard : MonoBehaviour
         tetrominos_ = new Tetromino[columns, rows];
     }
 
-    // Use this for initialization
     void Start()
     {
         CreateBorder();
@@ -62,6 +61,22 @@ public class TetrisBoard : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void Clear()
+    {
+        for (int row = 0; row < rows; row++)
+        {
+            for (int col = 0; col < columns; col++)
+            {
+                var mino = tetrominos_[col, row];
+                if (mino == null)
+                    continue;
+
+                Destroy(mino.gameObject);
+                tetrominos_[col, row] = null;
+            }
+        }
     }
 
     public void Fall()

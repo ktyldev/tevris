@@ -18,6 +18,8 @@ public class TetrisGame : MonoBehaviour
 
     private TetrisBoard board_;
     private TetrisInput input_;
+    private int ticks_ = 0;
+    private bool gameOver_;
 
     private void Awake()
     {
@@ -33,17 +35,17 @@ public class TetrisGame : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        input_.OnStartGame.AddListener(StartGame);
+        input_.OnEndGame.AddListener(GameOver);
+
         input_.OnMove.AddListener(md => board_.MovePiece(md));
         input_.OnRotate.AddListener(rd => board_.RotatePiece(rd));
         input_.OnDrop.AddListener(board_.DropPiece);
-
-        StartCoroutine(Run());
     }
 
     private IEnumerator Run()
     {
-        bool gameOver = false;
-        while (!gameOver)
+        while (!gameOver_)
         {
             float waitTime = input_.SoftDrop 
                 ? softDropTickLength
@@ -65,6 +67,9 @@ public class TetrisGame : MonoBehaviour
 
     private void Tick()
     {
+        if (gameOver_)
+            return;
+
         board_.Fall();
 
         if (!board_.HasActivePiece)
@@ -72,5 +77,19 @@ public class TetrisGame : MonoBehaviour
             int r = Random.Range(0, piecePatterns.Length);
             board_.SpawnPiece(piecePatterns[r]);
         }
+
+        ticks_++;
+    }
+
+    public void StartGame()
+    {
+        gameOver_ = false;
+        StartCoroutine(Run());
+    }
+
+    public void GameOver()
+    {
+        gameOver_ = true;
+        board_.Clear();
     }
 }

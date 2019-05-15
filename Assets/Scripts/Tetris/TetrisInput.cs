@@ -30,9 +30,19 @@ public class TetrisInput : MonoBehaviour
     public InputLayout[] inputLayouts;
     public int selectedInputLayout = 0;
 
+    // meta
+    public KeyCode startGame;
+    public KeyCode endGame;
+
+    // piece control
     public UnityEvent<MoveDirection> OnMove { get; private set; }
     public UnityEvent<RotateDirection> OnRotate { get; private set; }
     public UnityEvent OnDrop { get; private set; }
+
+    // game management
+    public UnityEvent OnStartGame { get; private set; } = new UnityEvent();
+    public UnityEvent OnEndGame { get; private set; } = new UnityEvent();
+
     public bool SoftDrop => Input.GetKey(inputLayout_.softDrop);
     public bool SoftDropStart => Input.GetKeyDown(inputLayout_.softDrop);
 
@@ -48,10 +58,25 @@ public class TetrisInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // meta input
+        if (Input.GetKeyDown(endGame))
+        {
+            OnEndGame.Invoke();
+        }
+
+        if (Input.GetKeyDown(startGame))
+        {
+            OnStartGame.Invoke();
+        }
+
+        GameInput();
+    }
+
+    private void GameInput()
+    {
         var layout = inputLayout_;
 
         // drop
-        // TODO: soft drop
         if (Input.GetKeyDown(layout.hardDrop))
         {
             OnDrop.Invoke();
@@ -97,5 +122,4 @@ public struct InputLayout
     // drop
     public KeyCode hardDrop;
     public KeyCode softDrop;
-
 }
