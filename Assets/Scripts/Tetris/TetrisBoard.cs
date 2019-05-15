@@ -44,42 +44,48 @@ public class TetrisBoard : MonoBehaviour
 
     void Start()
     {
+        //transform.localScale = transform.parent.localScale; CreateBorder();
         CreateBorder();
 
-        var translation = new Vector3(-columns / 2 + 0.5f, 1.5f);
+        var translation = new Vector3(
+            (-columns / 2 + 0.5f), 
+            1.5f) * transform.parent.localScale.x;
+
         transform.Translate(translation, Space.Self);
     }
 
+    private GameObject borders_;
     private void CreateBorder()
     {
-        var borders = new GameObject();
-        borders.transform.SetParent(transform);
-        borders.name = "Borders";
+        borders_ = new GameObject();
+        borders_.transform.SetParent(transform);
+        borders_.name = "Borders";
 
         var botBorder = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        botBorder.transform.SetParent(borders_.transform);
         botBorder.transform.localPosition = new Vector3(columns / 2 - 0.5f, -1);
         botBorder.transform.localScale = new Vector3(columns + 2, 1, 1);
-        botBorder.transform.SetParent(borders.transform);
 
         var topBorder = Instantiate(botBorder);
+        topBorder.transform.SetParent(borders_.transform);
         topBorder.transform.localPosition = new Vector3(columns / 2 - 0.5f, rows);
-        topBorder.transform.SetParent(borders.transform);
 
         var leftBorder = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        leftBorder.transform.SetParent(borders_.transform);
         leftBorder.transform.localPosition = new Vector3(-1, rows / 2 - 0.5f);
         leftBorder.transform.localScale = new Vector3(1, rows, 1);
-        leftBorder.transform.SetParent(borders.transform);
 
         var rightBorder = Instantiate(leftBorder);
+        rightBorder.transform.SetParent(borders_.transform);
         rightBorder.transform.localPosition = new Vector3(columns, rows / 2 - 0.5f);
-        rightBorder.transform.SetParent(borders.transform);
 
-        foreach (var renderer in borders.GetComponentsInChildren<Renderer>())
+        foreach (var renderer in borders_.GetComponentsInChildren<Renderer>())
         {
             renderer.material.color = borderColour;
         }
 
-        borders.transform.localPosition = Vector3.zero;
+        borders_.transform.localPosition = Vector3.zero;
+        borders_.transform.localScale = transform.localScale;
     }
 
     // Update is called once per frame
@@ -296,23 +302,6 @@ public class TetrisBoard : MonoBehaviour
             };
         }
     }
-
-    // testing for overlaps with board edges and tetrominos that have already been
-    // placed. returns null if no move is possible ie bordered on both sides.
-    //private Vector2Int? GetOffset(Vector2Int[] positions)
-    //{
-    //    Vector2Int result = new Vector2Int();
-
-    //    foreach (var pos in positions)
-    //    {
-    //        if (!IsPositionValid(pos))
-    //        {
-    //            result.y = 
-    //        }
-    //    }
-
-    //    return result;
-    //}
 
     public bool RotatePiece(RotateDirection rDir)
     {
