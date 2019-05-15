@@ -254,27 +254,56 @@ public class TetrisBoard : MonoBehaviour
             };
         }
 
-        // if the piece is at the top of the board it bumps into the upper
-        // border. this can be accounted for by calculating how far past the 
-        // border it is and moving it down 
-        int moveOffset = 0;
+        // the pieces can glitch into walls if they are rotated while pressed up
+        // against one. the following code prevents this by moving it away from
+        // problem borders.
+        int xOffset = 0;
+        int yOffset = 0;
         for (int i = 0; i < 4; i++)
         {
             var newPos = activePiece_.Position + rotatedRelativePositions[i];
+            // piece is overlapping top wall
             if (newPos.y >= rows)
             {
-                moveOffset = Math.Max(moveOffset, newPos.y - rows + 1);
+                yOffset = Math.Max(yOffset, newPos.y - rows + 1);
                 continue;
             }
 
             if (IsOccupied(newPos))
                 return false;
+
+            // piece is overlapping left wall
+            if (newPos.x < 0)
+            {
+                xOffset = Math.Max(xOffset, -newPos.x);
+                continue;
+            }
+            if (newPos.x >= columns)
+            {
+                xOffset = Math.Min(xOffset, columns - newPos.x - 1);
+                continue;
+            }
+
         }
 
-        print(moveOffset);
-        for (int i = 0; i < moveOffset; i++)
+        for (int i = 0; i < yOffset; i++)
         {
             MovePiece(Direction.Down);
+        }
+        if (xOffset > 0)    // move right
+        {
+            for (int i = 0; i < xOffset; i++)
+            {
+                MovePiece(Direction.Right);
+            }
+        }
+        else                // move left
+        {
+            for (int i = 0; i > xOffset; i--)
+            {
+                MovePiece(Direction.Left);
+            }
+            
         }
 
         // all validation passed, time to move the pieces
