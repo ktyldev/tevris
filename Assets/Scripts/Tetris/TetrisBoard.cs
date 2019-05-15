@@ -43,6 +43,9 @@ public class TetrisBoard : MonoBehaviour
     void Start()
     {
         CreateBorder();
+
+        var translation = new Vector3(-columns / 2 + 0.5f, 1.5f);
+        transform.Translate(translation);
     }
 
     private void CreateBorder()
@@ -52,21 +55,21 @@ public class TetrisBoard : MonoBehaviour
         borders.name = "Borders";
 
         var botBorder = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        botBorder.transform.position = new Vector3(columns / 2 - 0.5f, -1);
+        botBorder.transform.localPosition = new Vector3(columns / 2 - 0.5f, -1);
         botBorder.transform.localScale = new Vector3(columns + 2, 1, 1);
         botBorder.transform.SetParent(borders.transform);
 
         var topBorder = Instantiate(botBorder);
-        topBorder.transform.position = new Vector3(columns / 2 - 0.5f, rows);
+        topBorder.transform.localPosition = new Vector3(columns / 2 - 0.5f, rows);
         topBorder.transform.SetParent(borders.transform);
 
         var leftBorder = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        leftBorder.transform.position = new Vector3(-1, rows / 2 - 0.5f);
+        leftBorder.transform.localPosition = new Vector3(-1, rows / 2 - 0.5f);
         leftBorder.transform.localScale = new Vector3(1, rows, 1);
         leftBorder.transform.SetParent(borders.transform);
 
         var rightBorder = Instantiate(leftBorder);
-        rightBorder.transform.position = new Vector3(columns, rows / 2 - 0.5f);
+        rightBorder.transform.localPosition = new Vector3(columns, rows / 2 - 0.5f);
         rightBorder.transform.SetParent(borders.transform);
 
         foreach (var renderer in borders.GetComponentsInChildren<Renderer>())
@@ -141,7 +144,7 @@ public class TetrisBoard : MonoBehaviour
             t =>
             {
                 tetrominos_[x, y] = t;
-                t.transform.position = new Vector3(x, y);
+                t.transform.localPosition = new Vector3(x, y);
 
                 t.Colour = colour;
             });
@@ -264,7 +267,7 @@ public class TetrisBoard : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             var pos = newPositions[i];
-            tetrominos[i].transform.position = new Vector3(pos.x, pos.y);
+            tetrominos[i].transform.localPosition = new Vector3(pos.x, pos.y);
             tetrominos_[pos.x, pos.y] = tetrominos[i];
         }
 
@@ -386,7 +389,7 @@ public class TetrisBoard : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             var pos = newPositions[i];
-            tetrominos[i].transform.position = new Vector3(pos.x, pos.y);
+            tetrominos[i].transform.localPosition = new Vector3(pos.x, pos.y);
             tetrominos_[pos.x, pos.y] = tetrominos[i];
         }
 
@@ -417,7 +420,7 @@ public class TetrisBoard : MonoBehaviour
         y = end.y;
 
         tetrominos_[x, y] = t;
-        t.transform.position = new Vector3(x, y);
+        t.transform.localPosition = new Vector3(x, y);
     }
 
     public bool IsNeighbourOccupied(Vector2Int pos, Direction dir) =>
