@@ -44,8 +44,9 @@ public class VRPickerNode {
 
     private Vector3 worldPosition_;
 
-    private bool laserMode_;
-    private bool isHeld_;
+    private bool laserMode_ = false;
+    private bool isHeld_ = false;
+    private bool isAtHand_ = false;
 
     private Pickupable heldItem_;
     private Rigidbody heldRigidbody_;
@@ -116,7 +117,26 @@ public class VRPickerNode {
 
         if (heldRigidbody_ != null)
         {
-            heldRigidbody_.MovePosition(worldPosition_);
+            var smoothPosition = Vector3.Lerp(
+                heldRigidbody_.transform.position,
+                worldPosition_,
+                isAtHand_
+                    ? GameConstants.VRHandHeldLerp
+                    : GameConstants.VRHandFloatLerp
+            );
+
+            float dist
+                = Vector3.Distance(
+                    heldRigidbody_.transform.position,
+                    worldPosition_
+                );
+
+            if (!isAtHand_ && dist <= GameConstants.VRHandSnapThreshold)
+            {
+                isAtHand_ = true;
+            }
+
+            heldRigidbody_.MovePosition(smoothPosition);
             heldRigidbody_.MoveRotation(handRotation_);
         }
         else if (heldItem_ != null)
@@ -171,6 +191,7 @@ public class VRPickerNode {
 
         heldItem_ = hitPickup;
         heldRigidbody_ = hitPickup.GetComponent<Rigidbody>();
+        isAtHand_ = false;
 
         return true;
     }
@@ -210,6 +231,7 @@ public class VRPickerNode {
 
         heldItem_ = pickedObject;
         heldRigidbody_ = pickedObject.gameObject.GetComponent<Rigidbody>();
+        isAtHand_ = true;
 
         return true;
     }
@@ -239,6 +261,7 @@ public class VRPickerNode {
         heldRigidbody_.velocity = scaledVelocity;
 
         heldItem_.PutDown();
+        isAtHand_ = false;
         heldItem_ = null;
         heldRigidbody_ = null;
     }
