@@ -21,6 +21,8 @@ public class TetrisGame : MonoBehaviour
     private TetrisInput input_;
     private int ticks_ = 0;
     private bool gameOver_;
+    private float lastTick_ = 0;
+    private float nextTick_ = 0;
 
     private void Awake()
     {
@@ -33,15 +35,52 @@ public class TetrisGame : MonoBehaviour
         input_ = GetComponent<TetrisInput>();
     }
 
+    private float lastInput_ = 0;
     // Use this for initialization
     void Start()
     {
         input_.OnStartGame.AddListener(StartGame);
         input_.OnEndGame.AddListener(GameOver);
 
-        input_.OnMove.AddListener(md => board_.MovePiece(md));
-        input_.OnRotate.AddListener(rd => board_.RotatePiece(rd));
-        input_.OnDrop.AddListener(board_.DropPiece);
+        input_.OnMove.AddListener(md =>
+        {
+            board_.MovePiece(md);
+            lastInput_ = Time.time;
+        });
+        input_.OnRotate.AddListener(rd =>
+        {
+            board_.RotatePiece(rd);
+            lastInput_ = Time.time;
+        });
+        input_.OnDrop.AddListener(() =>
+        {
+            board_.DropPiece();
+            lastInput_ = Time.time;
+        });
+    }
+
+    private void Update()
+    {
+        if (input_.SoftDrop)
+        {
+            nextTick_ = lastTick_ + softDropTickLength;
+        }
+
+        if (Time.time < nextTick_)
+            return;
+
+        lastTick_ = Time.time;
+        nextTick_ = lastTick_ + tickLength;
+
+        if (board_.ActivePieceLanded)
+        {
+            if (Time.time - lastInput_ < tickLength)
+                return;
+
+            board_.DeactivatePiece();
+        }
+            
+        Tick();
     }
 
     private IEnumerator Run()
@@ -66,6 +105,7 @@ public class TetrisGame : MonoBehaviour
         }
     }
 
+    private bool pieceLanded_ = false;
     private void Tick()
     {
         if (gameOver_)
@@ -89,7 +129,6 @@ public class TetrisGame : MonoBehaviour
     public void StartGame()
     {
         gameOver_ = false;
-        StartCoroutine(Run());
     }
 
     public IEnumerator DoGameOver()
