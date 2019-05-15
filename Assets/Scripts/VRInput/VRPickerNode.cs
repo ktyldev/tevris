@@ -167,17 +167,12 @@ public class VRPickerNode {
         float smallestAngle = Mathf.Rad2Deg * alpha;
         Pickupable closest = null;
 
-        Debug.Log("found " + hits.Length + " hits.");
-
         foreach(var hit in hits)
         {
             Collider currentCollider = hit.collider;
             var pickupable = currentCollider.GetComponent<Pickupable>();
 
-            if (pickupable.IsPickedUp)
-            {
-                Debug.Log("already picked up.");
-            }
+            if (pickupable.IsPickedUp) continue;
 
             float relativeAngle =
                 Vector3.Angle(
@@ -185,11 +180,8 @@ public class VRPickerNode {
                     (hit.collider.transform.position - worldPosition_).normalized
                 );
 
-            Debug.Log("relative angle: " + relativeAngle);
-
             if (relativeAngle <= smallestAngle)
             {
-                Debug.Log("setting new closest!");
                 smallestAngle = relativeAngle;
                 closest = pickupable;
             }
@@ -198,7 +190,6 @@ public class VRPickerNode {
         // this shouldn't happen, but it doesn't hurt to check
         if (closest == null || !closest.PickUp()) return false;
 
-        Debug.Log("applying closest");
         heldItem_ = closest;
         heldRigidbody_ = closest.GetComponent<Rigidbody>();
 
