@@ -137,8 +137,6 @@ public class VRPickerNode {
 
     public void PickUp()
     {
-        Debug.Log("[" + name_ + "]: picking up");
-
         // try a proxy pickup regardless
         if (PickUpProximity()) return;
 
@@ -148,27 +146,63 @@ public class VRPickerNode {
 
     private bool PickUpLaser()
     {
-        RaycastHit hit;
-        bool success =
-            Physics.Raycast(
+        Debug.Log("doing laser pickup");
+        float distance = GameConstants.VRLaserPickupMaxDistance;
+        float alpha = Mathf.Deg2Rad * GameConstants.VRLaserPickupMaxAngle;
+        float radius = distance * Mathf.Tan(alpha);
+
+        Vector3 direction = handRotation_ * Vector3.forward;
+
+        RaycastHit[] hits
+            = Physics.SphereCastAll(
                 worldPosition_,
-                (handRotation_ * Vector3.forward),
-                out hit,
-                Mathf.Infinity,
-                layerMask_);
+                radius,
+                direction,
+                distance,
+                layerMask_
+            );
 
-        Pickupable pickedObject;
-        pickedObject = hit.collider?.gameObject.GetComponent<Pickupable>();
 
-        if (success && pickedObject != null && pickedObject.PickUp())
+        // minimum angle allowed is alpha
+        float smallestAngle = Mathf.Rad2Deg * alpha;
+        Pickupable closest = null;
+
+        Debug.Log("found " + hits.Length + " hits.");
+
+        foreach(var hit in hits)
         {
-            heldItem_ = pickedObject;
-            heldRigidbody_ = pickedObject.GetComponent<Rigidbody>();
+            Collider currentCollider = hit.collider;
+            var pickupable = currentCollider.GetComponent<Pickupable>();
 
-            return true;
+            if (pickupable.IsPickedUp)
+            {
+                Debug.Log("already picked up.");
+            }
+
+            float relativeAngle =
+                Vector3.Angle(
+                    direction,
+                    (hit.collider.transform.position - worldPosition_).normalized
+                );
+
+            Debug.Log("relative angle: " + relativeAngle);
+
+            if (relativeAngle <= smallestAngle)
+            {
+                Debug.Log("setting new closest!");
+                smallestAngle = relativeAngle;
+                closest = pickupable;
+            }
         }
 
-        return false;
+        // this shouldn't happen, but it doesn't hurt to check
+        if (closest == null || !closest.PickUp()) return false;
+
+        Debug.Log("applying closest");
+        heldItem_ = closest;
+        heldRigidbody_ = closest.GetComponent<Rigidbody>();
+
+        return true;
     }
 
     private bool PickUpProximity()
@@ -212,7 +246,6 @@ public class VRPickerNode {
 
     public void LetGo()
     {
-        Debug.Log("[" + name_ + "]: letting go");
         if (heldItem_ == null) return;
 
         // transfer motion to our object

@@ -6,6 +6,9 @@ public static class GameConstants {
     // === interaction === //
     public const float VRPickupRadius = 0.3f;
     public const float VRPickupVelocityTransfer = 1.25f;
+    public const float VRLaserPickupMaxAngle = 2.0f;
+    public const float VRLaserPickupMaxDistance = 50.0f;
+
     public const float ExplosionTransferSpeed = 0.3f; // meters per second
     public const float GrenadeExplosionVelocity = 5.0f;
 
