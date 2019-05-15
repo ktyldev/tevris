@@ -4,38 +4,38 @@ using UnityEngine;
 
 public static class GameConstants {
     // === interaction === //
-    public static float VRPickupRadius = 0.3f;
-    public static float VRPickupVelocityTransfer = 1.25f;
-    public static float ExplosionTransferSpeed = 0.3f; // meters per second
-    public static float GrenadeExplosionVelocity = 5000.0f;
+    public const float VRPickupRadius = 0.3f;
+    public const float VRPickupVelocityTransfer = 1.25f;
+    public const float ExplosionTransferSpeed = 0.3f; // meters per second
+    public const float GrenadeExplosionVelocity = 5.0f;
 
     // === input === //
-    public static KeyCode OTButtonOnePress = KeyCode.JoystickButton0;
-    public static KeyCode OTButtonTwoPress = KeyCode.JoystickButton1;
-    public static KeyCode OTButtonThreePress = KeyCode.JoystickButton2;
-    public static KeyCode OTButtonFourPress = KeyCode.JoystickButton3;
+    public const KeyCode OTButtonOnePress = KeyCode.JoystickButton0;
+    public const KeyCode OTButtonTwoPress = KeyCode.JoystickButton1;
+    public const KeyCode OTButtonThreePress = KeyCode.JoystickButton2;
+    public const KeyCode OTButtonFourPress = KeyCode.JoystickButton3;
 
-    public static KeyCode OTButtonStartPress = KeyCode.JoystickButton7;
+    public const KeyCode OTButtonStartPress = KeyCode.JoystickButton7;
 
-    public static string OTTriggerLeftHand = "OTTriggerLeftHand";
-    public static string OTTriggerLeftIndex = "OTTriggerLeftIndex";
-    public static string OTTriggerLeftIndexTouch = "OTTriggerLeftIndexTouch";
-    public static string OTTriggerLeftIndexNearTouch = "OTTriggerLeftIndexNearTouch";
+    public const string OTTriggerLeftHand = "OTTriggerLeftHand";
+    public const string OTTriggerLeftIndex = "OTTriggerLeftIndex";
+    public const string OTTriggerLeftIndexTouch = "OTTriggerLeftIndexTouch";
+    public const string OTTriggerLeftIndexNearTouch = "OTTriggerLeftIndexNearTouch";
 
-    public static string OTTriggerRightHand = "OTTriggerRightHand";
-    public static string OTTriggerRightIndex = "OTTriggerRightIndex";
-    public static string OTTriggerRightIndexTouch = "OTTriggerRightIndexTouch";
-    public static string OTTriggerRightIndexNearTouch = "OTTriggerRightIndexNearTouch";
+    public const string OTTriggerRightHand = "OTTriggerRightHand";
+    public const string OTTriggerRightIndex = "OTTriggerRightIndex";
+    public const string OTTriggerRightIndexTouch = "OTTriggerRightIndexTouch";
+    public const string OTTriggerRightIndexNearTouch = "OTTriggerRightIndexNearTouch";
 
-    public static string OTAxisLeftVertical = "OTAxisLeftVertical";
-    public static string OTAxisLeftHorizontal = "OTAxisLeftHorizontal";
-    public static string OTAxisRightVertical = "OTAxisRightVertical";
-    public static string OTAxisRightHorizontal = "OTAxisRightHorizontal";
+    public const string OTAxisLeftVertical = "OTAxisLeftVertical";
+    public const string OTAxisLeftHorizontal = "OTAxisLeftHorizontal";
+    public const string OTAxisRightVertical = "OTAxisRightVertical";
+    public const string OTAxisRightHorizontal = "OTAxisRightHorizontal";
 
 
     // === tags === //
-    public static string PickupTag = "Pickupable";
+    public const string PickupTag = "Pickupable";
 
     // === layers === //
-    public static int PickupLayer = 10;
+    public const int PickupLayer = 10;
 }

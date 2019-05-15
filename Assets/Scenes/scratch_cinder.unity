@@ -161,6 +161,11 @@ Prefab:
       propertyPath: m_Mass
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 114896793662318878, guid: 2badeadc9fbc28f499ce8558eec30ed4,
+        type: 2}
+      propertyPath: explosionStrength
+      value: 10000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2badeadc9fbc28f499ce8558eec30ed4, type: 2}
   m_IsPrefabAsset: 0
@@ -552,11 +557,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 54655454887234916, guid: 2badeadc9fbc28f499ce8558eec30ed4,
-        type: 2}
-      propertyPath: m_Mass
-      value: 0.4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2badeadc9fbc28f499ce8558eec30ed4, type: 2}
   m_IsPrefabAsset: 0
@@ -577,7 +577,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4178863476346316, guid: 88dfb9a3b12aa7f478cf1f898cd831b0, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4178863476346316, guid: 88dfb9a3b12aa7f478cf1f898cd831b0, type: 2}
       propertyPath: m_LocalRotation.x

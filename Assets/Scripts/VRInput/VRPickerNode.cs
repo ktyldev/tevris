@@ -36,12 +36,17 @@ public class VRPickerNode {
     private Vector3 basePosition_;
     private Transform visuals_;
     private LineRenderer pickupRenderer_;
+    private const int layerMask_ = 1 << GameConstants.PickupLayer;
 
     private Vector3 handPosition_;
+    private Quaternion handRotation_;
     private Vector3 handVelocity_;
+
+    private Vector3 worldPosition_;
 
     private bool laserMode_;
     private bool isHeld_;
+
     private Pickupable heldItem_;
     private Rigidbody heldRigidbody_;
 
@@ -97,26 +102,26 @@ public class VRPickerNode {
 
         if (heldRigidbody_ != null) heldRigidbody_.velocity = Vector3.zero;
 
-        var position = basePosition_ + InputTracking.GetLocalPosition(data_.Node);
-        var rotation = InputTracking.GetLocalRotation(data_.Node);
-        visuals_.SetPositionAndRotation(position, rotation);
+        worldPosition_ = basePosition_ + InputTracking.GetLocalPosition(data_.Node);
+        handRotation_ = InputTracking.GetLocalRotation(data_.Node);
+        visuals_.SetPositionAndRotation(worldPosition_, handRotation_);
 
         bool showLine = laserMode_ && heldItem_ == null && !noTracking;
         pickupRenderer_.enabled = showLine;
         pickupRenderer_.SetPositions(new []
         {
-            position,
-            position + (rotation * Vector3.forward) * 1000.0f
+            worldPosition_,
+            worldPosition_ + (handRotation_ * Vector3.forward) * 1000.0f
         });
 
         if (heldRigidbody_ != null)
         {
-            heldRigidbody_.MovePosition(position);
-            heldRigidbody_.MoveRotation(rotation);
+            heldRigidbody_.MovePosition(worldPosition_);
+            heldRigidbody_.MoveRotation(handRotation_);
         }
         else if (heldItem_ != null)
         {
-            heldItem_.transform.SetPositionAndRotation(position, rotation);
+            heldItem_.transform.SetPositionAndRotation(worldPosition_, handRotation_);
         }
 
         visuals_.gameObject.SetActive(
@@ -133,24 +138,49 @@ public class VRPickerNode {
     public void PickUp()
     {
         Debug.Log("[" + name_ + "]: picking up");
-        PickUpProximity();
+
+        // try a proxy pickup regardless
+        if (PickUpProximity()) return;
+
+        // if laser is shown, try a laser pickup
+        if (laserMode_) PickUpLaser();
     }
 
-    private void PickUpLaser()
+    private bool PickUpLaser()
     {
+        RaycastHit hit;
+        bool success =
+            Physics.Raycast(
+                worldPosition_,
+                (handRotation_ * Vector3.forward),
+                out hit,
+                Mathf.Infinity,
+                layerMask_);
+
+        Pickupable pickedObject;
+        pickedObject = hit.collider?.gameObject.GetComponent<Pickupable>();
+
+        if (success && pickedObject != null && pickedObject.PickUp())
+        {
+            heldItem_ = pickedObject;
+            heldRigidbody_ = pickedObject.GetComponent<Rigidbody>();
+
+            return true;
+        }
+
+        return false;
     }
 
-    private void PickUpProximity()
+    private bool PickUpProximity()
     {
-        int layerMask = 1 << GameConstants.PickupLayer;
         Collider[] hitColliders = Physics.OverlapSphere(
             WorldPosition,
             GameConstants.VRPickupRadius,
-            layerMask
+            layerMask_
         );
 
         Pickupable pickedObject;
-        if (hitColliders.Length == 0) return;
+        if (hitColliders.Length == 0) return false;
         else if (hitColliders.Length == 1)
         {
             pickedObject = hitColliders[0].gameObject.GetComponent<Pickupable>();
@@ -172,10 +202,12 @@ public class VRPickerNode {
             pickedObject = currentClosest.GetComponent<Pickupable>();
         }
 
-        if (!pickedObject.PickUp()) return;
+        if (!pickedObject.PickUp()) return false;
 
         heldItem_ = pickedObject;
         heldRigidbody_ = pickedObject.gameObject.GetComponent<Rigidbody>();
+
+        return true;
     }
 
     public void LetGo()
