@@ -35,6 +35,8 @@ public class TetrisBoard : MonoBehaviour
         }
     }
 
+    public Vector2Int[] PieceNeighbours => activePiece_?.NeighbourPositions;
+
     private void Awake()
     {
         tetrominos_ = new Tetromino[columns, rows];
@@ -258,8 +260,6 @@ public class TetrisBoard : MonoBehaviour
         {
             var pos = oldPositions[i];
             var t = tetrominos_[pos.x, pos.y];
-            if (t == null)
-                throw new NullReferenceException();
 
             tetrominos[i] = t;
             tetrominos_[pos.x, pos.y] = null;
@@ -277,51 +277,75 @@ public class TetrisBoard : MonoBehaviour
         return true;
     }
 
-    public bool RotatePiece(RotateDirection rDir)
+    private void RotatePositions(Vector2Int[] positions, RotateDirection rDir)
     {
-        if (activePiece_ == null)
-            return false;
-
         var rotation = rDir == RotateDirection.Anticlockwise
             ? Quaternion.AngleAxis(90, Vector3.forward)
             : Quaternion.AngleAxis(-90, Vector3.forward);
 
-        var rotatedRelativePositions = new Vector2Int[4];
         for (int i = 0; i < 4; i++)
         {
-            var pos = activePiece_.relativePositions[i];
+            var pos = positions[i];
             var relPos = new Vector3(pos.x, pos.y);
             relPos = rotation * relPos;
 
-            rotatedRelativePositions[i] = new Vector2Int
+            positions[i] = new Vector2Int
             {
                 x = Mathf.RoundToInt(relPos.x),
                 y = Mathf.RoundToInt(relPos.y)
             };
         }
+    }
 
-        // the pieces can glitch into walls if they are rotated while pressed up
-        // against one. the following code prevents this by moving it away from
-        // problem borders.
+    // testing for overlaps with board edges and tetrominos that have already been
+    // placed. returns null if no move is possible ie bordered on both sides.
+    //private Vector2Int? GetOffset(Vector2Int[] positions)
+    //{
+    //    Vector2Int result = new Vector2Int();
+
+    //    foreach (var pos in positions)
+    //    {
+    //        if (!IsPositionValid(pos))
+    //        {
+    //            result.y = 
+    //        }
+    //    }
+
+    //    return result;
+    //}
+
+    public bool RotatePiece(RotateDirection rDir)
+    {
+        if (activePiece_ == null)
+            return false;
+
+        Vector2Int[] positions = new Vector2Int[4];
+        for (int i = 0; i < 4; i++)
+        {
+            positions[i] = activePiece_.relativePositions[i]; 
+        }
+        RotatePositions(positions, rDir);
+
         int xOffset = 0;
         int yOffset = 0;
         for (int i = 0; i < 4; i++)
         {
-            var newPos = activePiece_.Position + rotatedRelativePositions[i];
+            var newPos = activePiece_.Position + positions[i];
+            if (IsOccupied(newPos))
+                return false;
+
             // piece is overlapping top wall
             if (newPos.y >= rows)
             {
                 yOffset = Math.Min(yOffset, rows - newPos.y - 1);
                 continue;
             }
+            // piece is overlapping bottom wall
             if (newPos.y < 0)
             {
                 yOffset = Math.Max(yOffset, -newPos.y);
                 continue;
             }
-
-            if (IsOccupied(newPos))
-                return false;
 
             // piece is overlapping left wall
             if (newPos.x < 0)
@@ -329,6 +353,7 @@ public class TetrisBoard : MonoBehaviour
                 xOffset = Math.Max(xOffset, -newPos.x);
                 continue;
             }
+            // piece is overlapping right wall
             if (newPos.x >= columns)
             {
                 xOffset = Math.Min(xOffset, columns - newPos.x - 1);
@@ -384,7 +409,7 @@ public class TetrisBoard : MonoBehaviour
         // rotate piece
         for (int i = 0; i < 4; i++)
         {
-            activePiece_.relativePositions[i] = rotatedRelativePositions[i];
+            activePiece_.relativePositions[i] = positions[i];
         }
 
         // put minos in new positions

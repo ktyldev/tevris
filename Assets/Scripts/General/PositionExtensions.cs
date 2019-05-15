@@ -17,7 +17,7 @@ namespace Extensions
 
     public static class PositionExtensions
     {
-        private static readonly Vector2Int[] Directions = new[]
+        private static readonly Vector2Int[] directions_ = new[]
         {
             Vector2Int.up,
             Vector2Int.right,
@@ -32,7 +32,7 @@ namespace Extensions
 
         public static Vector2Int GetVector(this Direction direction)
         {
-            return Directions[(int)direction];
+            return directions_[(int)direction];
         }
     }
 }

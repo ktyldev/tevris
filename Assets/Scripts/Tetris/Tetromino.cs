@@ -18,21 +18,4 @@ public class Tetromino : MonoBehaviour
         if (renderer_ == null)
             throw new System.Exception("need a renderer fam");
     }
-
-    public void Move()
-    {
-        
-    }
-
-    // Use this for initialization
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
