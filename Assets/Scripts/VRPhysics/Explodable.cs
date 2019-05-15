@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Destroyable))]
 public class Explodable : MonoBehaviour {
     [SerializeField]
     private float explosionRadius = 5.0f;
@@ -40,11 +39,13 @@ public class Explodable : MonoBehaviour {
                 rb.AddForce(explosionForce);
             }
 
+            /*
             var explodable = collider.GetComponent<Explodable>();
             if (explodable != null)
             {
                 explodable.Explode(diff.magnitude / GameConstants.ExplosionTransferSpeed);
             }
+            */
 
             var destroyable = collider.GetComponent<Destroyable>();
             if (destroyable != null)
@@ -54,9 +55,12 @@ public class Explodable : MonoBehaviour {
         }
 
         // now, destroy ourselves!
+        /*
         gameObject
             .GetComponent<Destroyable>()
             .Destroy(DestructionMethod.Explosion);
+            */
+        Destroy(this.gameObject);
     }
 
     public IEnumerator ExplodeIn(float time)

@@ -159,7 +159,8 @@ public class TetrisBoard : MonoBehaviour
             var pos = activePiece_.TetrominoPositions[i];
             var t = tetrominos_[pos.x, pos.y];
 
-            t.gameObject.AddComponent<Destroyable>();
+            var d = t.transform.GetChild(0).gameObject.AddComponent<Destroyable>();
+            d.DestructionType = DestructionType.Parent;
         }
 
         activePiece_ = null;

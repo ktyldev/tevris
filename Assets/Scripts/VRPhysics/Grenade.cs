@@ -10,7 +10,12 @@ public class Grenade : Pickupable {
     void Start()
     {
         // when you let go, the grenade activates.
-        onPutDown.AddListener(() => isActive_ = true);
+        onPutDown.AddListener(Activate);
+    }
+
+    void Activate() {
+        Debug.Log("grenade active!");
+        isActive_ = true;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -24,7 +29,7 @@ public class Grenade : Pickupable {
         if (velocity < GameConstants.GrenadeExplosionVelocity)
         {
             // deactivate if we're not dropped with enough force
-            isActive_ = false;
+            //isActive_ = false;
             return;
         }
 

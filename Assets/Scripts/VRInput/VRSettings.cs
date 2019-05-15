@@ -7,7 +7,7 @@ public class VRSettings : MonoBehaviour
 {
     [SerializeField]
     [Range(0.5f, 2.0f)]
-    private float renderScale_ = 1.3f;
+    private float renderScale_ = 1.0f;
 
     void Update () {
         if (XRSettings.eyeTextureResolutionScale != renderScale_)
