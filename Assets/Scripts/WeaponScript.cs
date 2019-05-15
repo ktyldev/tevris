@@ -13,12 +13,6 @@ public class WeaponScript : MonoBehaviour {
     public int currentWeapon = 1;
 
 
-	// Use this for initialization
-	void Start () {
-
-	}
-	
-	// Update is called once per frame
 	void Update () {
         Firing = Input.GetMouseButton(0)
             || Input.GetAxis(GameConstants.OTTriggerRightIndex) != 0.0f;
@@ -31,16 +25,27 @@ public class WeaponScript : MonoBehaviour {
         {
             currentWeapon = 0;
         }
+        else if (Input.GetKeyDown("3"))
+        {
+            currentWeapon = 2;
+        }
 
         switch (currentWeapon)
         {
             case 0:
                 gunActive = true;
                 laserActive = false;
+                FireWorkActive = false;
                 break;
             case 1:
                 gunActive = false;
                 laserActive = true;
+                FireWorkActive = false;
+                break;
+            case 2:
+                gunActive = false;
+                laserActive = false;
+                FireWorkActive = true;
                 break;
         }
 
