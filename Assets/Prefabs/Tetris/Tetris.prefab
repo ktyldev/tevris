@@ -1,0 +1,182 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1143111508527110}
+  m_IsPrefabAsset: 1
+--- !u!1 &1143111508527110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4586900964818304}
+  - component: {fileID: 114452902155978120}
+  - component: {fileID: 114434728661718616}
+  m_Layer: 0
+  m_Name: Tetris
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1938915623723168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4580338146278942}
+  - component: {fileID: 114320139851326282}
+  m_Layer: 0
+  m_Name: Grid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4580338146278942
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1938915623723168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4586900964818304}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4586900964818304
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1143111508527110}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4580338146278942}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114320139851326282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1938915623723168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21da62eae6f2aa9428cad8639bd53df2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rows: 20
+  columns: 10
+  borderColour: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &114434728661718616
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1143111508527110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6813ea9084864574ebefeef155664eec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startGame: 115
+  endGame: 120
+  continue: 32
+  inputLayouts:
+  - moveLeft: 276
+    moveRight: 275
+    rotate: 273
+    rotateClockwise: 0
+    rotateAnticlockwise: 0
+    hardDrop: 32
+    softDrop: 274
+  - moveLeft: 104
+    moveRight: 108
+    rotate: 106
+    rotateClockwise: 107
+    rotateAnticlockwise: 106
+    hardDrop: 32
+    softDrop: 99
+  selectedInputLayout: 0
+--- !u!114 &114452902155978120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1143111508527110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711034817bc15de488df9bf696e61000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piecePatterns:
+  - name: S
+    colour: {r: 0.078704596, g: 1, b: 0, a: 1}
+    relativePositions:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: -1, y: -1}
+    - {x: 0, y: -1}
+  - name: Z
+    colour: {r: 1, g: 0.019995866, b: 0, a: 1}
+    relativePositions:
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: 0, y: -1}
+    - {x: 1, y: -1}
+  - name: lomg
+    colour: {r: 0, g: 0.98978424, b: 1, a: 1}
+    relativePositions:
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 2, y: 0}
+  - name: square
+    colour: {r: 0.9898695, g: 1, b: 0, a: 1}
+    relativePositions:
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: -1, y: -1}
+    - {x: 0, y: -1}
+  - name: T
+    colour: {r: 0.84874153, g: 0, b: 1, a: 1}
+    relativePositions:
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: -1, y: -1}
+  - name: L
+    colour: {r: 1, g: 0.6113293, b: 0, a: 1}
+    relativePositions:
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: -1, y: -1}
+  - name: other L
+    colour: {r: 0.091415405, g: 0, b: 1, a: 1}
+    relativePositions:
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 1, y: -1}
+  tetromino: {fileID: 0}
+  grid: {fileID: 1938915623723168}
+  tickLength: 0.5
+  softDropTickLength: 0.05

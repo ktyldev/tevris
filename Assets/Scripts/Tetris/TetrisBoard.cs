@@ -149,6 +149,14 @@ public class TetrisBoard : MonoBehaviour
 
     public void DeactivatePiece()
     {
+        for (int i = 0; i < 4; i++)
+        {
+            var pos = activePiece_.TetrominoPositions[i];
+            var t = tetrominos_[pos.x, pos.y];
+
+            t.gameObject.AddComponent<Destroyable>();
+        }
+
         activePiece_ = null;
 
         ClearLines();
