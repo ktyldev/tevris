@@ -2339,6 +2339,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 81127581461289240, guid: 32f5f43e38432a049977f1a83f467f17,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32f5f43e38432a049977f1a83f467f17, type: 2}
   m_IsPrefabAsset: 0
@@ -2483,6 +2488,11 @@ Prefab:
       propertyPath: selectedInputLayout
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114304377235064496, guid: f7137312f30ed8b40ac4ec3d65a2fb52,
+        type: 2}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1303262427}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7137312f30ed8b40ac4ec3d65a2fb52, type: 2}
   m_IsPrefabAsset: 0
@@ -3972,6 +3982,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd8e01fcc972c94983e282e9d9db5b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1303262427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1180803011067830, guid: 32f5f43e38432a049977f1a83f467f17,
+    type: 2}
+  m_PrefabInternal: {fileID: 947113755}
 --- !u!1 &1319202721 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1453323958817776, guid: 88dfb9a3b12aa7f478cf1f898cd831b0,
