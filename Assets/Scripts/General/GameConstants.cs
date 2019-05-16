@@ -49,4 +49,5 @@ public static class GameConstants {
 
     // === layers === //
     public const int PickupLayer = 10;
+    public const int TetrisGrid = 11;    
 }
