@@ -7,7 +7,7 @@ public class SceneLoader : MonoBehaviour {
 
     public void LoadMain()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadSceneAsync(1);
     }
 
     public void Exit()
