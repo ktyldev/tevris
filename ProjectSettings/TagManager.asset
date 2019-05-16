@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pickupable
   - VRCamera
+  - SoundEngine
   layers:
   - Default
   - TransparentFX

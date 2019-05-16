@@ -47,8 +47,26 @@ public static class GameConstants {
     // === tags === //
     public const string PickupTag = "Pickupable";
     public const string VRCameraTag = "VRCamera";
+    public const string SoundEngineTag = "SoundEngine";
 
     // === layers === //
     public const int PickupLayer = 10;
-    public const int TetrisGrid = 11;    
+    public const int TetrisGrid = 11;
+
+    // === sound === //
+    public static readonly string[] LevelTracks = {
+        "8bit_2",
+        "8bit_3",
+        "8bit_4",
+        "8bit_5",
+        "8bit_8",
+        "essence_of_good_things",
+        "fancy_cakes",
+        "inside_dreams",
+    };
+
+    public static readonly string[] menuTracks =
+    {
+        "in_the_spinning_world"
+    };
 }
