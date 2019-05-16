@@ -7,19 +7,22 @@ public class Bowstring : Pickupable
 {
     public Transform arrowSpawn;
     // minimum distance string needs to be pulled back in order to fire
-    public float minDrawDistance; 
+    public float minDrawDistance;
+    public Transform top;
+    public Transform bot;
 
     [SerializeField]
     private GameObject projectile_;
 
     private GameObject projectileInstance_;
     private Transform projectileRoot_;
-
     private Vector3 restingPosition_;
+    private LineRenderer line_;
 
     void Start()
     {
-        Debug.Log("handle start");
+        line_ = GetComponent<LineRenderer>();
+
         onPickUp.AddListener(Activate);
         onPutDown.AddListener(Release);
 
@@ -43,6 +46,19 @@ public class Bowstring : Pickupable
             projectileInstance_.transform.position = transform.position;
             projectileInstance_.transform.LookAt(transform.parent.position);
         }
+    }
+
+    void LateUpdate()
+    {
+        var positions = new[]
+        {
+            top.position,
+            transform.position,
+            bot.position
+        };
+
+        line_.positionCount = 3;
+        line_.SetPositions(positions);
     }
 
     void Activate()

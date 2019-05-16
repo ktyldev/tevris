@@ -1115,7 +1115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &468414368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1785,6 +1785,10 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1309020534}
+    - target: {fileID: 1027175787548714, guid: 397b9e19e0b7077448870e05d985bdb4, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 397b9e19e0b7077448870e05d985bdb4, type: 2}
   m_IsPrefabAsset: 0
@@ -2543,24 +2547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd8e01fcc972c94983e282e9d9db5b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &951318844 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1616117995775394, guid: 9c7e926bdc8abc64497bc04a87ed97e3,
-    type: 2}
-  m_PrefabInternal: {fileID: 1389949019}
---- !u!114 &951318845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 951318844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionRadius: 1
-  explosionStrength: 100
 --- !u!1 &966006972 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1671810296357788, guid: 88dfb9a3b12aa7f478cf1f898cd831b0,
@@ -4431,6 +4417,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 120112980376761714, guid: 9c7e926bdc8abc64497bc04a87ed97e3,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23816551198497020, guid: 9c7e926bdc8abc64497bc04a87ed97e3,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 33db5a724acf6394d9c3045d1105c4f3, type: 2}
+    - target: {fileID: 120112980376761714, guid: 9c7e926bdc8abc64497bc04a87ed97e3,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 33db5a724acf6394d9c3045d1105c4f3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c7e926bdc8abc64497bc04a87ed97e3, type: 2}
   m_IsPrefabAsset: 0
