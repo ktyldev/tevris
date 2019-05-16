@@ -24,6 +24,8 @@ public class TetrisGame : MonoBehaviour
     private float lastTick_ = 0;
     private float nextTick_ = 0;
 
+    public UnityEvent OnGameOver { get; set; } = new UnityEvent();
+
     private void Awake()
     {
         if (Instance != null)
@@ -131,6 +133,12 @@ public class TetrisGame : MonoBehaviour
         gameOver_ = false;
     }
 
+    public void RestartGame()
+    {
+        board_.Clear();
+        gameOver_ = false;
+    }
+
     public IEnumerator DoGameOver()
     {
         bool done = false;
@@ -140,6 +148,8 @@ public class TetrisGame : MonoBehaviour
         gameOver_ = true;
 
         // TODO: start pieces flashing
+        // TODO: restart menu for pc player
+        OnGameOver.Invoke();
 
         yield return new WaitUntil(() => done);
 
