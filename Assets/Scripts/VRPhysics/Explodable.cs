@@ -11,6 +11,7 @@ public class Explodable : MonoBehaviour {
 
     public void Explode(float time = 0.0f)
     {
+        SoundEngine.GetEngine().PlaySFX(GameConstants.SFXExplosion);
         if (time > 0.0f)
         {
             StartCoroutine(ExplodeIn(time));
@@ -60,6 +61,8 @@ public class Explodable : MonoBehaviour {
             .GetComponent<Destroyable>()
             .Destroy(DestructionMethod.Explosion);
             */
+        ShowSFX();
+
         Destroy(this.gameObject);
     }
 
@@ -67,5 +70,18 @@ public class Explodable : MonoBehaviour {
     {
         yield return new WaitForSeconds(time);
         this.Explode();
+    }
+
+    void ShowSFX()
+    {
+        var explosionFX = Instantiate(
+            Resources.Load<GameObject>(
+                GameConstants.ExplosionDebrisPrefab
+            )
+        );
+
+        explosionFX.transform.position = transform.position;
+
+        Destroy(explosionFX, 1.0f);
     }
 }

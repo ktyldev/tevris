@@ -53,7 +53,15 @@ public static class GameConstants {
     public const int PickupLayer = 10;
     public const int TetrisGrid = 11;
 
+    // === resources === //
+    public const string ExplosionDebrisPrefab = "explosion_debris";
+
     // === sound === //
+    public const string SFXClick = "click";
+    public const string SFXExplosion = "explosion";
+    public const string SFXArrowFire = "arrow_fire";
+    public const string SFXArrowHit = "arrow_hit";
+
     public static readonly string[] LevelTracks = {
         "8bit_2",
         "8bit_3",

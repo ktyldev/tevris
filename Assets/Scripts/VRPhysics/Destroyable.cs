@@ -20,6 +20,8 @@ public class Destroyable : MonoBehaviour {
 
     public void Destroy(DestructionMethod method)
     {
+        SpawnFX(method);
+
         GameObject toDestroy = null;
         switch(DestructionType)
         {
@@ -35,5 +37,17 @@ public class Destroyable : MonoBehaviour {
         }
 
         GameObject.Destroy(toDestroy);
+    }
+
+    private void SpawnFX(DestructionMethod method) {
+        switch(method)
+        {
+            case DestructionMethod.Explosion:
+                break;
+
+            case DestructionMethod.Deletion:
+            default:
+                break;
+        }
     }
 }
