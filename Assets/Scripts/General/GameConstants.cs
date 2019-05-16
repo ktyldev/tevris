@@ -15,7 +15,7 @@ public static class GameConstants {
 
 
     public const float VRLaserPickupMaxAngle = 3.8f;
-    public const float VRLaserPickupMaxDistance = 50.0f;
+    public const float VRLaserPickupMaxDistance = 1000.0f;
 
     public const float ExplosionTransferSpeed = 0.3f; // meters per second
     public const float GrenadeExplosionVelocity = 2.0f;

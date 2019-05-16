@@ -240,25 +240,28 @@ public class VRPickerNode {
     {
         if (heldItem_ == null) return;
 
-        float minBound = GameConstants.VRVelocityScaleBounds.x;
-        float maxBound = GameConstants.VRVelocityScaleBounds.y;
+        if (heldRigidbody_ != null)
+        {
+            float minBound = GameConstants.VRVelocityScaleBounds.x;
+            float maxBound = GameConstants.VRVelocityScaleBounds.y;
 
-        float velocityScaleLerpValue
-            = Mathf.Clamp01((handVelocity_.magnitude - minBound) / (maxBound - minBound));
+            float velocityScaleLerpValue
+                = Mathf.Clamp01((handVelocity_.magnitude - minBound) / (maxBound - minBound));
 
-        float velocityScale
-            = Mathf.Lerp(
-                GameConstants.VRVelocityScaleValues.x,
-                GameConstants.VRVelocityScaleValues.y,
-                velocityScaleLerpValue
-            );
+            float velocityScale
+                = Mathf.Lerp(
+                    GameConstants.VRVelocityScaleValues.x,
+                    GameConstants.VRVelocityScaleValues.y,
+                    velocityScaleLerpValue
+                );
 
-        Vector3 scaledVelocity = handVelocity_ * velocityScale;
+            Vector3 scaledVelocity = handVelocity_ * velocityScale;
 
-        Debug.Log(handVelocity_ + " => " + scaledVelocity.magnitude);
+            Debug.Log(handVelocity_ + " => " + scaledVelocity.magnitude);
 
-        // transfer motion to our object
-        heldRigidbody_.velocity = scaledVelocity;
+            // transfer motion to our object
+            heldRigidbody_.velocity = scaledVelocity;
+        }
 
         heldItem_.PutDown();
         isAtHand_ = false;

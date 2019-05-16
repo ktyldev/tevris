@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PickupInstancer : MonoBehaviour {
-	void Start () {
+	void Awake () {
         foreach (var gameObject in GameObject.FindGameObjectsWithTag(GameConstants.PickupTag))
         {
             gameObject.layer = GameConstants.PickupLayer;
