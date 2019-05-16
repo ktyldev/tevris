@@ -71,11 +71,17 @@ public class Bowstring : Pickupable
 
     private void Shoot()
     {
+        var holdRotation = Quaternion.FromToRotation(
+            -projectileRoot_.forward,
+            (transform.localPosition - restingPosition_).normalized);
+
         var projectile = Instantiate(
             projectile_,
             arrowSpawn.position,
             arrowSpawn.rotation,
             projectileRoot_);
+
+        projectile.transform.Rotate(holdRotation.eulerAngles);
 
         var rb = projectile.GetComponent<Rigidbody>();
         var arrow = projectile.GetComponent<Arrow>();

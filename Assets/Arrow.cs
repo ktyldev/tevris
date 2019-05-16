@@ -22,13 +22,14 @@ public class Arrow : MonoBehaviour
         if (!IsActive)
             return;
 
-        if (collision.gameObject.GetComponentInParent<Tetromino>() == null)
-            return;
+        if (collision.gameObject.GetComponentInParent<Tetromino>() != null)
+        {
+            var explodable = GetComponent<Explodable>();
+            var velocity = collision.relativeVelocity.magnitude;
 
-        var explodable = GetComponent<Explodable>();
+            explodable.Explode();
+        }
 
-        var velocity = collision.relativeVelocity.magnitude;
-
-        explodable.Explode();
+        IsActive = false;
     }
 }
