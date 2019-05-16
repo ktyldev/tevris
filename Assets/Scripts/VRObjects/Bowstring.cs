@@ -6,6 +6,8 @@ using UnityEngine;
 public class Bowstring : Pickupable
 {
     public Transform arrowSpawn;
+    // minimum distance string needs to be pulled back in order to fire
+    public float minDrawDistance; 
 
     [SerializeField]
     private GameObject projectile_;
@@ -19,10 +21,10 @@ public class Bowstring : Pickupable
     {
         Debug.Log("handle start");
         onPickUp.AddListener(Activate);
-        onPutDown.AddListener(Shoot);
+        onPutDown.AddListener(Release);
 
-        //restingPosition_ = transform.localPosition;
-        restingPosition_ = Vector3.zero;
+        restingPosition_ = transform.localPosition;
+        //restingPosition_ = Vector3.zero;
 
         if (projectile_ == null)
             throw new System.Exception("projectile not set in bow!");
@@ -53,18 +55,32 @@ public class Bowstring : Pickupable
         projectileInstance_.transform.position = transform.position;
     }
 
-    void Shoot()
+    void Release()
     {
         Destroy(projectileInstance_);
         projectileInstance_ = null;
-        
-        this.Instantiate<Rigidbody>(
-            projectile_, 
-            arrowSpawn.position, 
-            arrowSpawn.rotation, 
-            null,
-            rb => rb.AddForce(rb.transform.forward * 10000.0f));
+
+        var draw = Vector3.Distance(transform.localPosition, restingPosition_);
+        if (draw > minDrawDistance)
+        {
+            Shoot();
+        }
 
         transform.localPosition = restingPosition_;
+    }
+
+    private void Shoot()
+    {
+        var projectile = Instantiate(
+            projectile_,
+            arrowSpawn.position,
+            arrowSpawn.rotation,
+            projectileRoot_);
+
+        var rb = projectile.GetComponent<Rigidbody>();
+        var arrow = projectile.GetComponent<Arrow>();
+
+        rb.AddForce(rb.transform.forward * 10000.0f);
+        arrow.IsActive = true;
     }
 }

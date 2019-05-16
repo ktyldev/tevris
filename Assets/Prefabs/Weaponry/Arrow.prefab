@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4322674123341800}
   - component: {fileID: 65578528560144960}
   - component: {fileID: 114617548863665548}
-  - component: {fileID: 114269995658095736}
   - component: {fileID: 54023419422113944}
+  - component: {fileID: 114836124755150282}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -156,17 +156,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114269995658095736
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1185943854689790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbd8e01fcc972c94983e282e9d9db5b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114617548863665548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -180,3 +169,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionRadius: 5
   explosionStrength: 10000
+--- !u!114 &114836124755150282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1185943854689790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c0214744854eed4589b7a9970a08354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

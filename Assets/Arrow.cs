@@ -2,15 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Arrow : MonoBehaviour {
+[RequireComponent(typeof(Explodable))]
+public class Arrow : MonoBehaviour
+{
+    public bool IsActive { get; set; }
 
-	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+	void Update ()
+    {
 		
 	}
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!IsActive)
+            return;
+
+        if (collision.gameObject.GetComponentInParent<Tetromino>() == null)
+            return;
+
+        var explodable = GetComponent<Explodable>();
+
+        var velocity = collision.relativeVelocity.magnitude;
+
+        explodable.Explode();
+    }
 }
