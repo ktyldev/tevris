@@ -181,7 +181,8 @@ public class VRPickerNode {
                 direction,
                 out hit,
                 GameConstants.VRLaserPickupMaxDistance,
-                layerMask_
+                layerMask_,
+                QueryTriggerInteraction.Collide
             );
 
         if (!hasHit) return false;
@@ -201,7 +202,8 @@ public class VRPickerNode {
         Collider[] hitColliders = Physics.OverlapSphere(
             WorldPosition,
             GameConstants.VRPickupRadius,
-            layerMask_
+            layerMask_,
+            QueryTriggerInteraction.Collide
         );
 
         Pickupable pickedObject;
