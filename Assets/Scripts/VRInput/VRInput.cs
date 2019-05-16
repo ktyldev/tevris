@@ -15,7 +15,13 @@ public class VRInput : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Vector3 basePosition = Camera.main.transform.position;
+        Vector3 basePosition
+            = GameObject
+            .FindGameObjectWithTag(GameConstants.VRCameraTag)
+            .transform
+            .parent
+            .position;
+
         nodeData_ = new List<VRPickerData>()
         {
             new VRPickerData(

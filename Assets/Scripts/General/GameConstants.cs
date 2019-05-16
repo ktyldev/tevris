@@ -46,6 +46,7 @@ public static class GameConstants {
 
     // === tags === //
     public const string PickupTag = "Pickupable";
+    public const string VRCameraTag = "VRCamera";
 
     // === layers === //
     public const int PickupLayer = 10;

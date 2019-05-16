@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 81127581461289240}
   m_Layer: 0
   m_Name: Headset Camera
-  m_TagString: MainCamera
+  m_TagString: VRCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
