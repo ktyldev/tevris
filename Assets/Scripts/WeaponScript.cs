@@ -7,6 +7,7 @@ public class WeaponScript : MonoBehaviour {
     public bool gunActive = false;
     public bool laserActive = false;
     public bool FireWorkActive = false;
+    public bool BazukaActive = false;
 
     public bool Firing;
 
@@ -29,6 +30,10 @@ public class WeaponScript : MonoBehaviour {
         {
             currentWeapon = 2;
         }
+        else if (Input.GetKeyDown("4"))
+        {
+            currentWeapon = 3;
+        }
 
         switch (currentWeapon)
         {
@@ -36,16 +41,25 @@ public class WeaponScript : MonoBehaviour {
                 gunActive = true;
                 laserActive = false;
                 FireWorkActive = false;
+                BazukaActive = false;
                 break;
             case 1:
                 gunActive = false;
                 laserActive = true;
                 FireWorkActive = false;
+                BazukaActive = false;
                 break;
             case 2:
                 gunActive = false;
                 laserActive = false;
                 FireWorkActive = true;
+                BazukaActive = false;
+                break;
+            case 3:
+                gunActive = false;
+                laserActive = false;
+                FireWorkActive = false;
+                BazukaActive = true;
                 break;
         }
 
