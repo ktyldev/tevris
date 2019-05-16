@@ -18,4 +18,9 @@ public class ScreenUI : MonoBehaviour
     {
 		
 	}
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }
