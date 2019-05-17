@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserScript : MonoBehaviour {
+public class LaserScript : Pickupable {
 
     public ParticleSystem particle;
     public ParticleSystem particle2;
+    public LineRenderer laser;
+
     bool playParticle = false;
 
     public bool worldSpace = true;
 
-    LineRenderer Line;
     Renderer rend;
-
-    public WeaponScript wP;
+    IEnumerator fireLaser;
 
     public float ammo = 10f;
     float timeFired = 0.0f;
@@ -21,83 +21,69 @@ public class LaserScript : MonoBehaviour {
     // can call resetAmmo() to reload
 
     void Start () {
-        rend = GetComponent<Renderer>();
-        Line = gameObject.GetComponent<LineRenderer>();
-        Line.enabled = false;
+        rend = laser.gameObject.GetComponent<Renderer>();
+
+        laser.enabled = false;
+
+        onActivate.AddListener(ActivateLaser);
+        onDeactivate.AddListener(DeactivateLaser);
 	}
-	
 
 	void Update () {
-
-		if(wP.laserActive == true)
-        {
-            if (wP.Firing == true)
-            {
-                // StopCoroutine("FireLaser");
-                StartCoroutine("FireLaser");
-            }
-        }
-        if (playParticle == true)
-        {
-            particle.Play();
-            particle2.Play();
-        }
-        if(wP.Firing == true)
-        {
-            timeFired += Time.deltaTime;
-        }
+        timeFired += Time.deltaTime;
+        rend.material.mainTextureOffset = new Vector2(0, Time.time);
+        laser.SetPosition(0, laser.transform.position);
+        laser.SetPosition(1, laser.transform.position + laser.transform.rotation * Vector3.forward * 1000.0f);
 	}
+
+    void ActivateLaser()
+    {
+        fireLaser = FireLaser();
+        StartCoroutine(fireLaser);
+
+        laser.enabled = true;
+        particle.Play();
+        particle2.Play();
+    }
+
+    void DeactivateLaser()
+    {
+        if (fireLaser != null)
+            StopCoroutine(fireLaser);
+
+        laser.enabled = false;
+        particle.Stop();
+        particle2.Stop();
+    }
 
     IEnumerator FireLaser()
     {
-        if(wP.laserActive == true)
+        while (true)
         {
             if (timeFired <= ammo)
             {
-                Line.enabled = true;
-                while (wP.Firing == true)
+                Ray ray = new Ray(transform.position, transform.forward);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit, 100))
                 {
-                    if (particle.isPlaying)
+                    Debug.Log(hit.collider.gameObject.ToString());
+                    if (hit.rigidbody)
                     {
-                        playParticle = false;
+                        //do  damage or something here//
                     }
-                    else
-                    {
-                        playParticle = true;
-                    }
-                    rend.material.mainTextureOffset = new Vector2(0, Time.time);
-                    Ray ray = new Ray(transform.position, transform.forward);
-                    RaycastHit hit;
-
-                    Line.SetPosition(0, ray.origin);
-                    if (Physics.Raycast(ray, out hit, 100))
-                    {
-                        Line.SetPosition(1, hit.point);
-                        if (hit.rigidbody)
-                        {
-                            //do  damage or something here//
-                        }
-                    }
-
-                    else
-                        Line.SetPosition(1, ray.GetPoint(100));
-                    yield return null;
                 }
-                
+                else
+                {
+                    laser.SetPosition(1, ray.GetPoint(100));
+                }
             }
-            Line.enabled = false;
-            if (particle.isPlaying == true)
-            {
-                particle.Stop();
-                particle2.Stop();
-            }
-
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
     void resetAmmo() {
 
         timeFired = 0.0f;
-
     }
 }
