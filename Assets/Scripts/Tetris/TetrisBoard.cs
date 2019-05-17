@@ -13,7 +13,7 @@ public class TetrisBoard : MonoBehaviour
 
     private Tetromino[,] tetrominos_;
     private Piece activePiece_;
-    public int linesCleared_ = 0;
+    public int LinesCleared { get; private set; } = 0;
 
     public Vector2Int SpawnPos => new Vector2Int(columns / 2, rows - 1);
     public bool HasActivePiece => activePiece_ != null;
@@ -50,7 +50,7 @@ public class TetrisBoard : MonoBehaviour
         CreateBorder();
 
         var translation = new Vector3(
-            (-columns / 2 + 0.5f), 
+            (-columns / 2 + 0.5f),
             1.5f) * transform.parent.localScale.x;
 
         transform.Translate(translation, Space.Self);
@@ -221,8 +221,8 @@ public class TetrisBoard : MonoBehaviour
             }
         }
 
-        linesCleared_++;
-        LineCleared.Invoke(linesCleared_);
+        LinesCleared++;
+        LineCleared.Invoke(LinesCleared);
     }
 
     public void DeleteTetromino(int x, int y)
@@ -330,7 +330,7 @@ public class TetrisBoard : MonoBehaviour
         Vector2Int[] positions = new Vector2Int[4];
         for (int i = 0; i < 4; i++)
         {
-            positions[i] = activePiece_.relativePositions[i]; 
+            positions[i] = activePiece_.relativePositions[i];
         }
         RotatePositions(positions, rDir);
 
@@ -381,7 +381,7 @@ public class TetrisBoard : MonoBehaviour
             for (int i = 0; i > yOffset; i--)
             {
                 MovePiece(Direction.Down);
-            } 
+            }
         }
 
         if (xOffset > 0)    // move right
