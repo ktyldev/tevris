@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponScript : MonoBehaviour {
+public class WeaponScript : Pickupable {
 
     public bool gunActive = false;
     public bool laserActive = false;
     public bool FireWorkActive = false;
     public bool BazukaActive = false;
 
-    public bool Firing;
+    public bool Firing = true;
 
     public int currentWeapon = 1;
 
+    void Start()
+    {
+        onActivate.AddListener(() => Firing = true);
+        onDeactivate.AddListener(() => Firing = false);
+    }
 
-	void Update () {
-        Firing = Input.GetMouseButton(0)
-            || Input.GetAxis(GameConstants.OTTriggerRightIndex) != 0.0f;
-
+    void Update () {
         if (Input.GetKeyDown("1"))
         {
             currentWeapon = 1;

@@ -113,6 +113,8 @@ public class VRPickerNode {
         {
             if (nowActive) heldItem_.Activate();
             else heldItem_.Deactivate();
+
+            isActive_ = nowActive;
         }
 
         if (heldRigidbody_ != null) heldRigidbody_.velocity = Vector3.zero;
