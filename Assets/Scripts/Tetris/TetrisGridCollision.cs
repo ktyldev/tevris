@@ -90,7 +90,8 @@ public class TetrisGridCollision : MonoBehaviour
             return;
         }
 
-        board_.SpawnTetromino(result.x, result.y, settled:true); 
+        board_.SpawnTetromino(result.x, result.y, settled:true);
+        board_.ClearLines();
     }
 
     private Vector2Int GetGridPosition(Vector3 hitPosition)
