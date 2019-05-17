@@ -536,6 +536,29 @@ Prefab:
       propertyPath: levelClearScore
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 4586900964818304, guid: f7137312f30ed8b40ac4ec3d65a2fb52, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586900964818304, guid: f7137312f30ed8b40ac4ec3d65a2fb52, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586900964818304, guid: f7137312f30ed8b40ac4ec3d65a2fb52, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114452902155978120, guid: f7137312f30ed8b40ac4ec3d65a2fb52,
+        type: 2}
+      propertyPath: tetromino
+      value: 
+      objectReference: {fileID: 1510742658469058, guid: e1c9e9d2f2aac424790047e3e2191c2f,
+        type: 2}
+    - target: {fileID: 114434728661718616, guid: f7137312f30ed8b40ac4ec3d65a2fb52,
+        type: 2}
+      propertyPath: switchMode
+      value: 118
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7137312f30ed8b40ac4ec3d65a2fb52, type: 2}
   m_IsPrefabAsset: 0

@@ -31,6 +31,7 @@ public class TetrisInput : MonoBehaviour
     public KeyCode startGame;
     public KeyCode endGame;
     public KeyCode @continue;
+    public KeyCode switchMode;
 
     public InputLayout[] inputLayouts;
     public int selectedInputLayout = 0;
@@ -74,6 +75,11 @@ public class TetrisInput : MonoBehaviour
         if (Input.GetKeyDown(@continue))
         {
             OnContinue.Invoke();
+        }
+
+        if (Input.GetKeyDown(switchMode))
+        {
+            selectedInputLayout = selectedInputLayout == 0 ? 1 : 0;
         }
 
         GameInput();
