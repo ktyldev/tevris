@@ -68,6 +68,9 @@ public class TetrisGame : MonoBehaviour
 
     private void Update()
     {
+        if (input_.SoftDropStart)
+            soundEngine_.PlaySFX(GameConstants.SFXTetrisSoftDrop);
+
         if (input_.SoftDrop)
         {
             nextTick_ = lastTick_ + softDropTickLength;

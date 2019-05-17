@@ -7,7 +7,7 @@ public static class GameConstants {
     public const float VRPickupRadius = 0.3f;
 
     public static Vector2 VRVelocityScaleBounds = new Vector2( 3.5f, 8.0f );
-    public static Vector2 VRVelocityScaleValues = new Vector2( 1.25f, 2.25f );
+    public static Vector2 VRVelocityScaleValues = new Vector2( 1.35f, 2.75f );
 
     public const float VRHandSnapThreshold = 0.15f;
     public const float VRHandFloatLerp = 0.15f;
@@ -67,7 +67,8 @@ public static class GameConstants {
 
     public const string SFXTetrisMove = "tetris_move";
     public const string SFXTetrisRotate = "tetris_rotate";
-    public const string SFXTetrisDrop = "tetris_hard_drop2";
+    public const string SFXTetrisDrop = "tetris_hard_drop";
+    public const string SFXTetrisSoftDrop = "tetris_hard_drop2";
 
     public static readonly string[] LevelTracks = {
         "8bit_2",
