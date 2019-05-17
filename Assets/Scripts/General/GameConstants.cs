@@ -22,6 +22,7 @@ public static class GameConstants {
 
     public const float LaserStartDelay = 0.1f;
     public const float LaserPlaceDelay = 0.2f;
+    public const float LaserAmmo = 1.0f;
 
     // === input === //
     public const KeyCode OTButtonOnePress = KeyCode.JoystickButton0;
@@ -87,5 +88,16 @@ public static class GameConstants {
     public static readonly string[] menuTracks =
     {
         "in_the_spinning_world"
+    };
+
+    // === visuals === //
+    public static readonly Color[] RandomTetColours =
+    {
+        Color.green,
+        Color.blue,
+        Color.cyan,
+        Color.magenta,
+        Color.yellow,
+        Color.red
     };
 }

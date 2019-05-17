@@ -145,9 +145,16 @@ public class TetrisBoard : MonoBehaviour
         return true;
     }
 
-    public void SpawnTetromino(int x, int y, Color colour)
+    public void SpawnTetromino(int x, int y, Color? colour = null, bool settled = false)
     {
-        this.Instantiate<Tetromino>(
+        Color actualColor
+            = (colour.HasValue)
+            ? colour.Value
+            : GameConstants.RandomTetColours[
+                UnityEngine.Random.Range(0, GameConstants.RandomTetColours.Length)
+            ];
+
+        var mino = this.Instantiate<Tetromino>(
             TetrisGame.Instance.tetromino,
             Vector3.zero,
             Quaternion.identity,
@@ -157,8 +164,15 @@ public class TetrisBoard : MonoBehaviour
                 tetrominos_[x, y] = t;
                 t.transform.localPosition = new Vector3(x, y);
 
-                t.Colour = colour;
+                t.Colour = actualColor;
             });
+
+        if (settled)
+        {
+            var cube = mino.transform.GetChild(0);
+            var destroyable = cube.gameObject.AddComponent<Destroyable>();
+            destroyable.DestructionType = DestructionType.Parent;
+        }
     }
 
     public void DeactivatePiece()

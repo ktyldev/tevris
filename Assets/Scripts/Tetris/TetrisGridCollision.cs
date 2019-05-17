@@ -80,12 +80,17 @@ public class TetrisGridCollision : MonoBehaviour
 
         SpaceCast(hit.Value);
     }
-    
+
+    private int deadRows = 6;
     public void SpaceCast(RaycastHit hit)
     {
         var result = GetGridPosition(hit.point);
+        if (result.y > board_.rows - deadRows)
+        {
+            return;
+        }
 
-        board_.SpawnTetromino(result.x, result.y, Color.white); 
+        board_.SpawnTetromino(result.x, result.y, settled:true); 
     }
 
     private Vector2Int GetGridPosition(Vector3 hitPosition)
