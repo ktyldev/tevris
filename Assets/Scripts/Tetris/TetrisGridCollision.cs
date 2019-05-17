@@ -85,6 +85,12 @@ public class TetrisGridCollision : MonoBehaviour
     public void SpaceCast(RaycastHit hit)
     {
         var result = GetGridPosition(hit.point);
+
+        if (board_.IsOccupied(result.x, result.y))
+        {
+            return;
+        }
+
         if (result.y > board_.rows - deadRows)
         {
             return;

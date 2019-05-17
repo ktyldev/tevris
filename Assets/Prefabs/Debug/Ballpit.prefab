@@ -14169,7 +14169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114003461856547110
 MonoBehaviour:
@@ -14226,7 +14226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114023312981650598
 MonoBehaviour:
@@ -14239,7 +14239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114039718604873238
 MonoBehaviour:
@@ -14274,7 +14274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114047853101946294
 MonoBehaviour:
@@ -14298,7 +14298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114053897954667756
 MonoBehaviour:
@@ -14322,7 +14322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114063344415878632
 MonoBehaviour:
@@ -14368,7 +14368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114075144651111290
 MonoBehaviour:
@@ -14392,7 +14392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114076185696603472
 MonoBehaviour:
@@ -14405,7 +14405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114077278046002104
 MonoBehaviour:
@@ -14429,7 +14429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114078347633350810
 MonoBehaviour:
@@ -14486,7 +14486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114095076353081264
 MonoBehaviour:
@@ -14499,7 +14499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114096187250971608
 MonoBehaviour:
@@ -14534,7 +14534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114112506115052370
 MonoBehaviour:
@@ -14558,7 +14558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114113208339663972
 MonoBehaviour:
@@ -14571,7 +14571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114115076033492428
 MonoBehaviour:
@@ -14650,7 +14650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114124957139169694
 MonoBehaviour:
@@ -14674,7 +14674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114137466343364566
 MonoBehaviour:
@@ -14698,7 +14698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114148435073569806
 MonoBehaviour:
@@ -14722,7 +14722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114159194834055910
 MonoBehaviour:
@@ -14735,7 +14735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114159454074455702
 MonoBehaviour:
@@ -14748,7 +14748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114160546436963478
 MonoBehaviour:
@@ -14761,7 +14761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114166421656913950
 MonoBehaviour:
@@ -14785,7 +14785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114171024315789912
 MonoBehaviour:
@@ -14809,7 +14809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114177318476192902
 MonoBehaviour:
@@ -14844,7 +14844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114187153577072648
 MonoBehaviour:
@@ -14857,7 +14857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114187676995269618
 MonoBehaviour:
@@ -14881,7 +14881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114196357143871236
 MonoBehaviour:
@@ -14916,7 +14916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114202592470352088
 MonoBehaviour:
@@ -14929,7 +14929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114202919795695354
 MonoBehaviour:
@@ -14942,7 +14942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114204136949311724
 MonoBehaviour:
@@ -14955,7 +14955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114208609343082402
 MonoBehaviour:
@@ -14979,7 +14979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114212393245356676
 MonoBehaviour:
@@ -15014,7 +15014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114219127187142260
 MonoBehaviour:
@@ -15027,7 +15027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114225076550408760
 MonoBehaviour:
@@ -15051,7 +15051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114230475248767628
 MonoBehaviour:
@@ -15064,7 +15064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114233744786242948
 MonoBehaviour:
@@ -15077,7 +15077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114236632411696858
 MonoBehaviour:
@@ -15123,7 +15123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114240204973335796
 MonoBehaviour:
@@ -15147,7 +15147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114249043947723938
 MonoBehaviour:
@@ -15160,7 +15160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114250512425219690
 MonoBehaviour:
@@ -15173,7 +15173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114251171752750048
 MonoBehaviour:
@@ -15186,7 +15186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114255761225542714
 MonoBehaviour:
@@ -15221,7 +15221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114273234541849112
 MonoBehaviour:
@@ -15245,7 +15245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114278679323615658
 MonoBehaviour:
@@ -15258,7 +15258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114281498373118018
 MonoBehaviour:
@@ -15271,7 +15271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114281499152832420
 MonoBehaviour:
@@ -15295,7 +15295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114301189022839432
 MonoBehaviour:
@@ -15319,7 +15319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114302094430304448
 MonoBehaviour:
@@ -15343,7 +15343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114304340085573768
 MonoBehaviour:
@@ -15356,7 +15356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114310758805464166
 MonoBehaviour:
@@ -15369,7 +15369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114321571521009794
 MonoBehaviour:
@@ -15426,7 +15426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114339875189926020
 MonoBehaviour:
@@ -15450,7 +15450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114344933292943892
 MonoBehaviour:
@@ -15474,7 +15474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114360564403521074
 MonoBehaviour:
@@ -15498,7 +15498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114366173105557934
 MonoBehaviour:
@@ -15544,7 +15544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114370244975003150
 MonoBehaviour:
@@ -15568,7 +15568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114382524546654962
 MonoBehaviour:
@@ -15581,7 +15581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114393710259224872
 MonoBehaviour:
@@ -15605,7 +15605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114402838750841560
 MonoBehaviour:
@@ -15618,7 +15618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114407682775521192
 MonoBehaviour:
@@ -15631,7 +15631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114408300576611810
 MonoBehaviour:
@@ -15655,7 +15655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114411563731151180
 MonoBehaviour:
@@ -15690,7 +15690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114431261727511752
 MonoBehaviour:
@@ -15714,7 +15714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114436249142568448
 MonoBehaviour:
@@ -15727,7 +15727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114440951906368310
 MonoBehaviour:
@@ -15795,7 +15795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114453913438441246
 MonoBehaviour:
@@ -15808,7 +15808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114457957806444024
 MonoBehaviour:
@@ -15821,7 +15821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114461939202310752
 MonoBehaviour:
@@ -15834,7 +15834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114465179253447226
 MonoBehaviour:
@@ -15869,7 +15869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114473379601991608
 MonoBehaviour:
@@ -15882,7 +15882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114474937806606028
 MonoBehaviour:
@@ -15895,7 +15895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114475104373044938
 MonoBehaviour:
@@ -15930,7 +15930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114480117279207206
 MonoBehaviour:
@@ -15954,7 +15954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114490722193017718
 MonoBehaviour:
@@ -15967,7 +15967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114496576992002470
 MonoBehaviour:
@@ -15991,7 +15991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114497532497806372
 MonoBehaviour:
@@ -16004,7 +16004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114497578058985186
 MonoBehaviour:
@@ -16017,7 +16017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114502548091799152
 MonoBehaviour:
@@ -16030,7 +16030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114502986659965696
 MonoBehaviour:
@@ -16043,7 +16043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114503268564937000
 MonoBehaviour:
@@ -16122,7 +16122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114516777849777626
 MonoBehaviour:
@@ -16135,7 +16135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114519624239637414
 MonoBehaviour:
@@ -16159,7 +16159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114522651255550070
 MonoBehaviour:
@@ -16205,7 +16205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114544189719373016
 MonoBehaviour:
@@ -16218,7 +16218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114548231701500524
 MonoBehaviour:
@@ -16231,7 +16231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114550787903901666
 MonoBehaviour:
@@ -16255,7 +16255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114556588626168064
 MonoBehaviour:
@@ -16279,7 +16279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114560415164936730
 MonoBehaviour:
@@ -16292,7 +16292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114560689558185144
 MonoBehaviour:
@@ -16338,7 +16338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114578068280199380
 MonoBehaviour:
@@ -16351,7 +16351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114578825471290034
 MonoBehaviour:
@@ -16375,7 +16375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114579037816263736
 MonoBehaviour:
@@ -16399,7 +16399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114581289071198994
 MonoBehaviour:
@@ -16412,7 +16412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114586900044923946
 MonoBehaviour:
@@ -16447,7 +16447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114594816329368154
 MonoBehaviour:
@@ -16460,7 +16460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114615767385551964
 MonoBehaviour:
@@ -16473,7 +16473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114618837328919770
 MonoBehaviour:
@@ -16486,7 +16486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114628605981384460
 MonoBehaviour:
@@ -16532,7 +16532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114644604764866996
 MonoBehaviour:
@@ -16545,7 +16545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114653450672704444
 MonoBehaviour:
@@ -16591,7 +16591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114675444714150868
 MonoBehaviour:
@@ -16604,7 +16604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114678900961658550
 MonoBehaviour:
@@ -16617,7 +16617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114683125833279862
 MonoBehaviour:
@@ -16641,7 +16641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114694299966995940
 MonoBehaviour:
@@ -16654,7 +16654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114695867964232738
 MonoBehaviour:
@@ -16678,7 +16678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114699166133225922
 MonoBehaviour:
@@ -16691,7 +16691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114700708763294930
 MonoBehaviour:
@@ -16737,7 +16737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114712575454577352
 MonoBehaviour:
@@ -16750,7 +16750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114713859273818858
 MonoBehaviour:
@@ -16763,7 +16763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114718160061241216
 MonoBehaviour:
@@ -16776,7 +16776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114719212174608380
 MonoBehaviour:
@@ -16811,7 +16811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114743200594528148
 MonoBehaviour:
@@ -16824,7 +16824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114748969860331876
 MonoBehaviour:
@@ -16837,7 +16837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114753445920418292
 MonoBehaviour:
@@ -16850,7 +16850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114755125682199234
 MonoBehaviour:
@@ -16885,7 +16885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114759286257384264
 MonoBehaviour:
@@ -16920,7 +16920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114772590519773018
 MonoBehaviour:
@@ -16933,7 +16933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114774569794391010
 MonoBehaviour:
@@ -16946,7 +16946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114787879364859462
 MonoBehaviour:
@@ -16959,7 +16959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114788480258679340
 MonoBehaviour:
@@ -17005,7 +17005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114795487675166428
 MonoBehaviour:
@@ -17018,7 +17018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114806720672552144
 MonoBehaviour:
@@ -17031,7 +17031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114807677371478904
 MonoBehaviour:
@@ -17066,7 +17066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114824058015531658
 MonoBehaviour:
@@ -17101,7 +17101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114833462365707432
 MonoBehaviour:
@@ -17136,7 +17136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114842709757730460
 MonoBehaviour:
@@ -17160,7 +17160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114843937309959874
 MonoBehaviour:
@@ -17184,7 +17184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114857581046021520
 MonoBehaviour:
@@ -17197,7 +17197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114858372172809558
 MonoBehaviour:
@@ -17210,7 +17210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114867565289583710
 MonoBehaviour:
@@ -17223,7 +17223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114870426657334982
 MonoBehaviour:
@@ -17258,7 +17258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114883452470967512
 MonoBehaviour:
@@ -17293,7 +17293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114888401415864290
 MonoBehaviour:
@@ -17339,7 +17339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114902867920911726
 MonoBehaviour:
@@ -17363,7 +17363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114908801370644024
 MonoBehaviour:
@@ -17376,7 +17376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114909122211883816
 MonoBehaviour:
@@ -17411,7 +17411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114923762800668284
 MonoBehaviour:
@@ -17424,7 +17424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114925509119541772
 MonoBehaviour:
@@ -17470,7 +17470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114938199197389470
 MonoBehaviour:
@@ -17483,7 +17483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114940979027629190
 MonoBehaviour:
@@ -17540,7 +17540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114948260813162190
 MonoBehaviour:
@@ -17608,7 +17608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114970159980358556
 MonoBehaviour:
@@ -17632,7 +17632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114978925143920170
 MonoBehaviour:
@@ -17645,7 +17645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114980615321661130
 MonoBehaviour:
@@ -17658,7 +17658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114985439764163992
 MonoBehaviour:
@@ -17671,7 +17671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114987892456098432
 MonoBehaviour:
@@ -17684,7 +17684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114989799587503360
 MonoBehaviour:
@@ -17697,7 +17697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310ef20a27c24b249a63e7afa0d6edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1.2
+  explosionRadius: 0.5
   explosionStrength: 1500
 --- !u!114 &114991675613333884
 MonoBehaviour:
