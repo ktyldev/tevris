@@ -18,6 +18,7 @@ public class TetrisGame : MonoBehaviour
     public float softDropTickLength;
 
     private TetrisBoard board_;
+    private static SoundEngine soundEngine_;
     private TetrisInput input_;
     private int ticks_ = 0;
     private bool gameOver_;
@@ -43,21 +44,25 @@ public class TetrisGame : MonoBehaviour
     {
         input_.OnStartGame.AddListener(StartGame);
         input_.OnEndGame.AddListener(GameOver);
+        soundEngine_ = SoundEngine.GetEngine();
 
         input_.OnMove.AddListener(md =>
         {
             board_.MovePiece(md);
             lastInput_ = Time.time;
+            soundEngine_.PlaySFX(GameConstants.SFXTetrisMove, false);
         });
         input_.OnRotate.AddListener(rd =>
         {
             board_.RotatePiece(rd);
             lastInput_ = Time.time;
+            soundEngine_.PlaySFX(GameConstants.SFXTetrisRotate, false);
         });
         input_.OnDrop.AddListener(() =>
         {
             board_.DropPiece();
             lastInput_ = Time.time;
+            soundEngine_.PlaySFX(GameConstants.SFXTetrisDrop);
         });
     }
 

@@ -60,6 +60,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fa38edfc67b4ebd409a8755a10f9f16f, type: 3}
   - {fileID: 8300000, guid: 6487a7d8a599d5549af33385a26eac0b, type: 3}
   - {fileID: 8300000, guid: da4b7c4cda1e44f4291c8fc3063dde81, type: 3}
+  - {fileID: 8300000, guid: d4e5de66afccd3640b6da35bf688b0f3, type: 3}
+  - {fileID: 8300000, guid: c44c71a796638064cae4e24ac2a6bcb6, type: 3}
+  - {fileID: 8300000, guid: 262ead77fac052d498d15cb7d2ae73ae, type: 3}
+  - {fileID: 8300000, guid: cd984d5d05f4cc24f841b493e24b1f9b, type: 3}
   musicTracks:
   - {fileID: 8300000, guid: 642f8522f03cf194ca42d7c7ed40c4f8, type: 3}
   - {fileID: 8300000, guid: 372080651fc3ed147ae7c3fb8dfa9287, type: 3}

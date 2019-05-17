@@ -65,6 +65,10 @@ public static class GameConstants {
     public const string SFXArrowFire = "arrow_fire";
     public const string SFXArrowHit = "arrow_hit";
 
+    public const string SFXTetrisMove = "tetris_move";
+    public const string SFXTetrisRotate = "tetris_rotate";
+    public const string SFXTetrisDrop = "tetris_hard_drop2";
+
     public static readonly string[] LevelTracks = {
         "8bit_2",
         "8bit_3",
