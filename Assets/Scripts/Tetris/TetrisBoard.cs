@@ -3,16 +3,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TetrisBoard : MonoBehaviour
 {
-
     public int rows;
     public int columns;
     public Color borderColour;
 
     private Tetromino[,] tetrominos_;
     private Piece activePiece_;
+    public int linesCleared_ = 0;
 
     public Vector2Int SpawnPos => new Vector2Int(columns / 2, rows - 1);
     public bool HasActivePiece => activePiece_ != null;
@@ -34,8 +35,10 @@ public class TetrisBoard : MonoBehaviour
             return false;
         }
     }
-
     public Vector2Int[] PieceNeighbours => activePiece_?.NeighbourPositions;
+
+    public class LineClearedEvent : UnityEvent<int> { }
+    public UnityEvent<int> LineCleared { get; private set; } = new LineClearedEvent();
 
     private void Awake()
     {
@@ -176,8 +179,6 @@ public class TetrisBoard : MonoBehaviour
 
     public void ClearLines()
     {
-        // check for cleared lines
-
         // start at the top
         for (int row = rows - 1; row >= 0; row--)
         {
@@ -187,33 +188,41 @@ public class TetrisBoard : MonoBehaviour
                 if (tetrominos_[col, row] == null)
                 {
                     rowFull = false;
+                    break;
                 }
             }
+
             if (rowFull)
             {
-                // if a line can be cleared... 
-                print("clear row " + row);
-                for (int col = 0; col < columns; col++)
-                {
-                    // ...remove it... 
-                    var mino = tetrominos_[col, row];
-                    Destroy(mino.gameObject);
-                    tetrominos_[col, row] = null;
-                }
-
-                // ...and move all higher lines down
-                for (int r = row + 1; r < rows; r++)
-                {
-                    for (int col = 0; col < columns; col++)
-                    {
-                        if (!IsOccupied(col, r))
-                            continue;
-
-                        MoveTetromino(new Vector2Int(col, r), Direction.Down);
-                    }
-                }
+                ClearLine(row);
             }
         }
+    }
+
+    private void ClearLine(int row)
+    {
+        // ...remove line...
+        for (int col = 0; col < columns; col++)
+        {
+            var mino = tetrominos_[col, row];
+            Destroy(mino.gameObject);
+            tetrominos_[col, row] = null;
+        }
+
+        // ...and move all lines above it down
+        for (int r = row + 1; r < rows; r++)
+        {
+            for (int col = 0; col < columns; col++)
+            {
+                if (!IsOccupied(col, r))
+                    continue;
+
+                MoveTetromino(new Vector2Int(col, r), Direction.Down);
+            }
+        }
+
+        linesCleared_++;
+        LineCleared.Invoke(linesCleared_);
     }
 
     public void DeleteTetromino(int x, int y)

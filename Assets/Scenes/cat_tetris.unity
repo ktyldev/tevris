@@ -392,6 +392,26 @@ Prefab:
       propertyPath: camera
       value: 
       objectReference: {fileID: 224082723}
+    - target: {fileID: 114452902155978120, guid: f7137312f30ed8b40ac4ec3d65a2fb52,
+        type: 2}
+      propertyPath: levelMultiplier
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114452902155978120, guid: f7137312f30ed8b40ac4ec3d65a2fb52,
+        type: 2}
+      propertyPath: linesPerLevel
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114452902155978120, guid: f7137312f30ed8b40ac4ec3d65a2fb52,
+        type: 2}
+      propertyPath: baseTickLength
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114452902155978120, guid: f7137312f30ed8b40ac4ec3d65a2fb52,
+        type: 2}
+      propertyPath: levelTickMultiplier
+      value: 0.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7137312f30ed8b40ac4ec3d65a2fb52, type: 2}
   m_IsPrefabAsset: 0
