@@ -33,6 +33,7 @@ public class VRInput : MonoBehaviour {
                 XRNode.RightHand,
                 lineMaterial_,
                 GameConstants.OTTriggerRightHand,
+                GameConstants.OTTriggerRightIndex,
                 GameConstants.OTTriggerRightIndexNearTouch,
                 GameConstants.OTTriggerRightIndexTouch
             ),
@@ -41,6 +42,7 @@ public class VRInput : MonoBehaviour {
                 XRNode.LeftHand,
                 lineMaterial_,
                 GameConstants.OTTriggerLeftHand,
+                GameConstants.OTTriggerLeftIndex,
                 GameConstants.OTTriggerLeftIndexNearTouch,
                 GameConstants.OTTriggerLeftIndexTouch
             )

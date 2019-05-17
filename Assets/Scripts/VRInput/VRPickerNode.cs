@@ -10,6 +10,7 @@ public struct VRPickerData
     public XRNode Node;
     public Material LineMaterial;
     public string PickupAxis;
+    public string ActivateAxis;
     public string LineAxis;
     public string LineButton;
 
@@ -18,6 +19,7 @@ public struct VRPickerData
             XRNode node, 
             Material lineMaterial,
             string pickupAxis, 
+            string activateAxis,
             string lineAxis, 
             string lineButton
     ) {
@@ -25,6 +27,7 @@ public struct VRPickerData
         Node = node;
         LineMaterial = lineMaterial;
         PickupAxis = pickupAxis;
+        ActivateAxis = activateAxis;
         LineAxis = lineAxis;
         LineButton = lineButton;
     }
@@ -46,6 +49,7 @@ public class VRPickerNode {
 
     private bool laserMode_ = false;
     private bool isHeld_ = false;
+    private bool isActive_ = false;
     private bool isAtHand_ = false;
 
     private Pickupable heldItem_;
@@ -88,6 +92,7 @@ public class VRPickerNode {
     public void Update()
     {
         bool nowHeld = Input.GetAxis(data_.PickupAxis) != 0.0f;
+        bool nowActive = Input.GetAxis(data_.ActivateAxis) != 0.0f;
         bool noTracking = InputTracking.GetLocalPosition(data_.Node) == Vector3.zero;
 
         laserMode_ =
@@ -102,6 +107,12 @@ public class VRPickerNode {
             else LetGo();
 
             isHeld_ = nowHeld;
+        }
+
+        if (heldItem_ != null && nowActive != isActive_)
+        {
+            if (nowActive) heldItem_.Activate();
+            else heldItem_.Deactivate();
         }
 
         if (heldRigidbody_ != null) heldRigidbody_.velocity = Vector3.zero;
