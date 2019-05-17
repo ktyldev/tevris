@@ -19,6 +19,8 @@ public class TetrisGame : MonoBehaviour
     public int linesPerLevel;
     [Range(0, 1)]
     public float levelTickMultiplier;
+    public int lineClearScore;
+    public int levelClearScore;
  
     private TetrisBoard board_;
     private static SoundEngine soundEngine_;
@@ -28,6 +30,8 @@ public class TetrisGame : MonoBehaviour
     private float lastTick_ = 0;
     private float nextTick_ = 0;
 
+    public int Score { get; private set; } = 0;
+    public int LinesCleared => board_.LinesCleared;
     public int Level { get; private set; }
 
     public UnityEvent OnGameOver { get; set; } = new UnityEvent();
@@ -44,15 +48,21 @@ public class TetrisGame : MonoBehaviour
 
         tickLength_ = baseTickLength;
 
-        PrintLevel();
+        //PrintLevel();
         board_.LineCleared.AddListener(i =>
         {
             if (i % linesPerLevel == 0)
             {
                 Level++;
                 tickLength_ = baseTickLength * Mathf.Pow(levelTickMultiplier, Level);
-                PrintLevel();
+                //PrintLevel();
+                Score += levelClearScore;
             }
+            else
+            {
+                Score += lineClearScore;
+            }
+
         });
     }
 
