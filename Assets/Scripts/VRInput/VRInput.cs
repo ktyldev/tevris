@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.XR;
 
 public class VRInput : MonoBehaviour {
@@ -13,8 +14,11 @@ public class VRInput : MonoBehaviour {
     private List<VRPickerData> nodeData_
         = new List<VRPickerData>();
 
-	// Use this for initialization
-	void Start () {
+    public UnityEvent StartFire { get; private set; } = new UnityEvent();
+    public UnityEvent StopFiring { get; private set; } = new UnityEvent();
+
+    // Use this for initialization
+    void Start () {
         Vector3 basePosition
             = GameObject
             .FindGameObjectWithTag(GameConstants.VRCameraTag)

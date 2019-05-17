@@ -6,13 +6,13 @@ public static class GameConstants {
     // === interaction === //
     public const float VRPickupRadius = 0.3f;
 
-    public static Vector2 VRVelocityScaleBounds = new Vector2( 2.0f, 8.0f );
-    public static Vector2 VRVelocityScaleValues = new Vector2( 1.25f, 3.25f );
+    public static Vector2 VRVelocityScaleBounds = new Vector2( 3.5f, 8.0f );
+    public static Vector2 VRVelocityScaleValues = new Vector2( 1.25f, 2.25f );
 
     public const float VRHandSnapThreshold = 0.15f;
     public const float VRHandFloatLerp = 0.15f;
     public const float VRHandHeldLerp = 0.4f;
-
+    public const float VRWhooshThreshold = 3.0f;
 
     public const float VRLaserPickupMaxAngle = 3.8f;
     public const float VRLaserPickupMaxDistance = 1000.0f;
@@ -43,6 +43,9 @@ public static class GameConstants {
     public const string OTAxisRightVertical = "OTAxisRightVertical";
     public const string OTAxisRightHorizontal = "OTAxisRightHorizontal";
 
+    public const string FireLeft = "FireLeft";
+    public const string FireRight = "FireRight";
+
 
     // === tags === //
     public const string PickupTag = "Pickupable";
@@ -62,15 +65,19 @@ public static class GameConstants {
     public const string SFXArrowFire = "arrow_fire";
     public const string SFXArrowHit = "arrow_hit";
 
+    public const string SFXTetrisMove = "tetris_move";
+    public const string SFXTetrisRotate = "tetris_rotate";
+    public const string SFXTetrisDrop = "tetris_hard_drop2";
+
     public static readonly string[] LevelTracks = {
         "8bit_2",
         "8bit_3",
         "8bit_4",
         "8bit_5",
         "8bit_8",
-        "essence_of_good_things",
-        "fancy_cakes",
-        "inside_dreams",
+        //"essence_of_good_things",
+        //"fancy_cakes",
+        //"inside_dreams",
     };
 
     public static readonly string[] menuTracks =

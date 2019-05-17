@@ -33,7 +33,7 @@ public class LaserScript : MonoBehaviour {
         {
             if (wP.Firing == true)
             {
-                StopCoroutine("FireLaser");
+                // StopCoroutine("FireLaser");
                 StartCoroutine("FireLaser");
             }
         }
