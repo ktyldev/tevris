@@ -2609,6 +2609,21 @@ Prefab:
       propertyPath: tetromino
       value: 
       objectReference: {fileID: 1671080916}
+    - target: {fileID: 114434728661718616, guid: f7137312f30ed8b40ac4ec3d65a2fb52,
+        type: 2}
+      propertyPath: endGame
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114434728661718616, guid: f7137312f30ed8b40ac4ec3d65a2fb52,
+        type: 2}
+      propertyPath: startGame
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114434728661718616, guid: f7137312f30ed8b40ac4ec3d65a2fb52,
+        type: 2}
+      propertyPath: switchMode
+      value: 118
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7137312f30ed8b40ac4ec3d65a2fb52, type: 2}
   m_IsPrefabAsset: 0
