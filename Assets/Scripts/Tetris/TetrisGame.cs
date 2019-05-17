@@ -14,9 +14,12 @@ public class TetrisGame : MonoBehaviour
     public Piece[] piecePatterns;
     public GameObject tetromino;
     public GameObject grid;
-    public float tickLength;
+    public float baseTickLength;
     public float softDropTickLength;
-
+    public int linesPerLevel;
+    [Range(0, 1)]
+    public float levelTickMultiplier;
+ 
     private TetrisBoard board_;
     private static SoundEngine soundEngine_;
     private TetrisInput input_;
@@ -24,6 +27,8 @@ public class TetrisGame : MonoBehaviour
     private bool gameOver_;
     private float lastTick_ = 0;
     private float nextTick_ = 0;
+
+    public int Level { get; private set; }
 
     public UnityEvent OnGameOver { get; set; } = new UnityEvent();
 
@@ -36,6 +41,25 @@ public class TetrisGame : MonoBehaviour
 
         board_ = grid.GetComponent<TetrisBoard>();
         input_ = GetComponent<TetrisInput>();
+
+        tickLength_ = baseTickLength;
+
+        PrintLevel();
+        board_.LineCleared.AddListener(i =>
+        {
+            if (i % linesPerLevel == 0)
+            {
+                Level++;
+                tickLength_ = baseTickLength * Mathf.Pow(levelTickMultiplier, Level);
+                PrintLevel();
+            }
+        });
+    }
+
+    private void PrintLevel()
+    {
+        var msg = string.Format("level {0}\ttick length: {1}", Level, tickLength_);
+        print(msg);
     }
 
     private float lastInput_ = 0;
@@ -66,6 +90,7 @@ public class TetrisGame : MonoBehaviour
         });
     }
 
+    private float tickLength_;
     private void Update()
     {
         if (input_.SoftDropStart)
@@ -80,11 +105,11 @@ public class TetrisGame : MonoBehaviour
             return;
 
         lastTick_ = Time.time;
-        nextTick_ = lastTick_ + tickLength;
+        nextTick_ = lastTick_ + tickLength_;
 
         if (board_.ActivePieceLanded)
         {
-            if (Time.time - lastInput_ < tickLength)
+            if (Time.time - lastInput_ < tickLength_)
                 return;
 
             board_.DeactivatePiece();
@@ -99,7 +124,7 @@ public class TetrisGame : MonoBehaviour
         {
             float waitTime = input_.SoftDrop 
                 ? softDropTickLength
-                : tickLength;
+                : baseTickLength;
 
             float elapsed = 0;
             while (elapsed < waitTime)
@@ -156,7 +181,6 @@ public class TetrisGame : MonoBehaviour
         gameOver_ = true;
 
         // TODO: start pieces flashing
-        // TODO: restart menu for pc player
         OnGameOver.Invoke();
 
         yield return new WaitUntil(() => done);
