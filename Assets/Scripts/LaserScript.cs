@@ -8,6 +8,9 @@ public class LaserScript : Pickupable {
     public ParticleSystem particle2;
     public LineRenderer laser;
 
+    private Collider collider_;
+    public TetrisGridCollision gridCollision_;
+
     bool playParticle = false;
 
     public bool worldSpace = true;
@@ -24,6 +27,7 @@ public class LaserScript : Pickupable {
         rend = laser.gameObject.GetComponent<Renderer>();
 
         laser.enabled = false;
+        collider_ = gridCollision_.GetCollider();
 
         onActivate.AddListener(ActivateLaser);
         onDeactivate.AddListener(DeactivateLaser);
@@ -58,27 +62,30 @@ public class LaserScript : Pickupable {
 
     IEnumerator FireLaser()
     {
+        yield return new WaitForSeconds(GameConstants.LaserStartDelay);
         while (true)
         {
             if (timeFired <= ammo)
             {
                 Ray ray = new Ray(transform.position, transform.forward);
-                RaycastHit hit;
+                RaycastHit? hit = null;
 
-                if (Physics.Raycast(ray, out hit, 100))
+                var hits = Physics.RaycastAll(ray, 50, -1, QueryTriggerInteraction.Collide);
+                foreach (var h in hits)
                 {
-                    Debug.Log(hit.collider.gameObject.ToString());
-                    if (hit.rigidbody)
+                    if (h.collider == collider_)
                     {
-                        //do  damage or something here//
+                        hit = h;
+                        break;
                     }
                 }
-                else
+
+                if (hit.HasValue)
                 {
-                    laser.SetPosition(1, ray.GetPoint(100));
+                    gridCollision_.SpaceCast(hit.Value);
                 }
             }
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(GameConstants.LaserPlaceDelay);
         }
     }
 

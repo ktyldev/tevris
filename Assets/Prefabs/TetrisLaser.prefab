@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4425210551863880}
-  - component: {fileID: 114185756799333854}
   - component: {fileID: 54149333627445316}
   - component: {fileID: 65355407674513070}
+  - component: {fileID: 114826699725097522}
   m_Layer: 0
   m_Name: TetrisLaser
   m_TagString: Pickupable
@@ -56,7 +56,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4120585807075036}
   - component: {fileID: 120224062197091998}
-  - component: {fileID: 114008786044334594}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -334,23 +333,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114008786044334594
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1262742972479180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc5c9b2368307244ca7cf16242f03b60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particle: {fileID: 198419711990881162}
-  particle2: {fileID: 198284965833128718}
-  worldSpace: 1
-  wP: {fileID: 114185756799333854}
-  ammo: 10
---- !u!114 &114185756799333854
+--- !u!114 &114826699725097522
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -358,15 +341,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1021512936659428}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b514dd6a8fadbc4191951530cf848b5, type: 3}
+  m_Script: {fileID: 11500000, guid: fc5c9b2368307244ca7cf16242f03b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunActive: 0
-  laserActive: 0
-  FireWorkActive: 0
-  BazukaActive: 0
-  Firing: 0
-  currentWeapon: 1
+  particle: {fileID: 198419711990881162}
+  particle2: {fileID: 198284965833128718}
+  laser: {fileID: 120224062197091998}
+  gridCollision_: {fileID: 0}
+  worldSpace: 1
+  ammo: 10
 --- !u!120 &120224062197091998
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -407,7 +390,7 @@ LineRenderer:
   - {x: -1.0000004, y: -0.0000043809414, z: 19.347292}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 1
+    widthMultiplier: 0.5
     widthCurve:
       serializedVersion: 2
       m_Curve:

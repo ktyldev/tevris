@@ -20,6 +20,9 @@ public static class GameConstants {
     public const float ExplosionTransferSpeed = 0.3f; // meters per second
     public const float GrenadeExplosionVelocity = 2.0f;
 
+    public const float LaserStartDelay = 0.1f;
+    public const float LaserPlaceDelay = 0.2f;
+
     // === input === //
     public const KeyCode OTButtonOnePress = KeyCode.JoystickButton0;
     public const KeyCode OTButtonTwoPress = KeyCode.JoystickButton1;
