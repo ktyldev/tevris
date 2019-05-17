@@ -18,6 +18,7 @@ public class Bowstring : Pickupable
     private Transform projectileRoot_;
     private Vector3 restingPosition_;
     private LineRenderer line_;
+    private static SoundEngine soundEngine_;
 
     void Start()
     {
@@ -35,6 +36,7 @@ public class Bowstring : Pickupable
         var root = new GameObject("Bow Projectiles");
 
         projectileRoot_ = root.transform;
+        soundEngine_ = SoundEngine.GetEngine();
 
         this.gameObject.SetActive(false);
     }
@@ -87,6 +89,8 @@ public class Bowstring : Pickupable
 
     private void Shoot()
     {
+        soundEngine_.PlaySFX("arrow_hit");
+
         var holdRotation = Quaternion.FromToRotation(
             -projectileRoot_.forward,
             (transform.localPosition - restingPosition_).normalized);

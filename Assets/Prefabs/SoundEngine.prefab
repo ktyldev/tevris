@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sfxVolume: 1
-  _musicVolume: 1
+  _musicVolume: 0.5
   _sfxPitchVariance: 0.4
   musicFadeTime: 3
   soundEffects:

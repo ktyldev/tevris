@@ -50,6 +50,7 @@ public class VRPickerNode {
 
     private Pickupable heldItem_;
     private Rigidbody heldRigidbody_;
+    private static SoundEngine soundEngine_;
 
     private VRPickerData data_;
 
@@ -63,6 +64,8 @@ public class VRPickerNode {
         name_ = data_.Node.ToString();
 
         baseObject_ = new GameObject(name_);
+
+        soundEngine_ = SoundEngine.GetEngine();
 
         if (data.VisualPrefab != null)
         {
@@ -244,6 +247,9 @@ public class VRPickerNode {
 
         if (heldRigidbody_ != null)
         {
+            if (handVelocity_.magnitude >= GameConstants.VRWhooshThreshold)
+                soundEngine_.PlaySFX("arrow_fire");
+
             float minBound = GameConstants.VRVelocityScaleBounds.x;
             float maxBound = GameConstants.VRVelocityScaleBounds.y;
 
