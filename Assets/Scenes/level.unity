@@ -2624,6 +2624,21 @@ Prefab:
       propertyPath: switchMode
       value: 118
       objectReference: {fileID: 0}
+    - target: {fileID: 114434728661718616, guid: f7137312f30ed8b40ac4ec3d65a2fb52,
+        type: 2}
+      propertyPath: continue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114452902155978120, guid: f7137312f30ed8b40ac4ec3d65a2fb52,
+        type: 2}
+      propertyPath: lineClearScore
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114452902155978120, guid: f7137312f30ed8b40ac4ec3d65a2fb52,
+        type: 2}
+      propertyPath: levelClearScore
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7137312f30ed8b40ac4ec3d65a2fb52, type: 2}
   m_IsPrefabAsset: 0
@@ -5936,11 +5951,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4176921472036588, guid: d5814e7edbc89b7468d9269707ccfe76, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 12.53
+      value: 8.94
       objectReference: {fileID: 0}
     - target: {fileID: 4176921472036588, guid: d5814e7edbc89b7468d9269707ccfe76, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11.51
+      value: 8.3
       objectReference: {fileID: 0}
     - target: {fileID: 4176921472036588, guid: d5814e7edbc89b7468d9269707ccfe76, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5971,6 +5986,31 @@ Prefab:
       propertyPath: tetris
       value: 
       objectReference: {fileID: 968714040}
+    - target: {fileID: 223237426528794048, guid: d5814e7edbc89b7468d9269707ccfe76,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 224680772447465620, guid: d5814e7edbc89b7468d9269707ccfe76,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224680772447465620, guid: d5814e7edbc89b7468d9269707ccfe76,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224680772447465620, guid: d5814e7edbc89b7468d9269707ccfe76,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 224680772447465620, guid: d5814e7edbc89b7468d9269707ccfe76,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.21
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5814e7edbc89b7468d9269707ccfe76, type: 2}
   m_IsPrefabAsset: 0
