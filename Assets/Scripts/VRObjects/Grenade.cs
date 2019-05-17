@@ -10,10 +10,18 @@ public class Grenade : Pickupable {
     void Start()
     {
         // when you let go, the grenade activates.
-        onPutDown.AddListener(Activate);
+        onPutDown.AddListener(ActivateGrenade);
+
+        var randomColor = GameConstants.RandomTetColours[
+            Random.Range(0, GameConstants.RandomTetColours.Length)
+        ];
+
+        GetComponent<Renderer>()
+            .material
+            .color = randomColor;
     }
 
-    void Activate() {
+    void ActivateGrenade() {
         Debug.Log("grenade active!");
         isActive_ = true;
     }

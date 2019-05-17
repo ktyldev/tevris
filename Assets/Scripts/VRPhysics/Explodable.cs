@@ -29,7 +29,7 @@ public class Explodable : MonoBehaviour {
             if (collider.gameObject == gameObject)
                 continue;
 
-            var diff = transform.position - collider.transform.position;
+            var diff = collider.transform.position - transform.position;
             var amt = 1.0f / Mathf.Pow((diff.magnitude + 1f), 2);
 
             var rb = collider.GetComponent<Rigidbody>();
